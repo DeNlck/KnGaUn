@@ -18,6 +18,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	#print("We in editor");
-	self.add_central_force(Vector3(0,0,100));
+	#self.add_central_force(Vector3(0,0,100));
 	#move_and_collide(Vector3(0,0,10), true, false);
 	pass

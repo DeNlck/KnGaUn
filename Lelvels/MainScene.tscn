@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=2]
+[gd_scene load_steps=67 format=2]
 
 [ext_resource path="res://Lelvels/KnifePhys.gd" type="Script" id=1]
 [ext_resource path="res://pillar_material.tres" type="Material" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/Material.material" type="Material" id=7]
 [ext_resource path="res://assets/test.png" type="Texture" id=8]
 [ext_resource path="res://assets/test2.png" type="Texture" id=9]
+[ext_resource path="res://Lelvels/MainScene.gd" type="Script" id=10]
 
 [sub_resource type="CylinderShape" id=4]
 height = 4.98112
@@ -627,6 +628,7 @@ surfaces/0 = {
 [sub_resource type="SpatialMaterial" id=57]
 
 [node name="Spatial" type="Spatial"]
+script = ExtResource( 10 )
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( -1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -0.562585, 1.49704, -3.67693 )
