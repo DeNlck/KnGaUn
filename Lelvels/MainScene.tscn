@@ -1,6 +1,5 @@
-[gd_scene load_steps=67 format=2]
+[gd_scene load_steps=66 format=2]
 
-[ext_resource path="res://Lelvels/KnifePhys.gd" type="Script" id=1]
 [ext_resource path="res://pillar_material.tres" type="Material" id=2]
 [ext_resource path="res://shield_mat.tres" type="Material" id=3]
 [ext_resource path="res://assets/wire_088144225.material" type="Material" id=4]
@@ -709,14 +708,17 @@ mesh = SubResource( 3 )
 material/0 = ExtResource( 3 )
 
 [node name="Knife" type="Spatial" parent="."]
-transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -0.541975, 1.23781, -3.16533 )
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -0.541975, 1.41652, -3.16533 )
 
-[node name="KnifePhys" type="RigidBody" parent="Knife"]
+[node name="KnifeRigid" type="RigidBody" parent="Knife"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0260515, 0, 0.0267633 )
-script = ExtResource( 1 )
+visible = false
+
+[node name="KnifePhys" type="KinematicBody" parent="Knife"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00753927, 0, 0 )
 
 [node name="KnifeCollis" type="CollisionShape" parent="Knife/KnifePhys"]
-transform = Transform( 0.574144, 0, -2.18589e-09, 0, 0.123918, 0, 2.15368e-08, 0, 0.058273, 0, 0, 0 )
+transform = Transform( 0.574144, 0, -2.18589e-09, 0, 0.123918, -6.61744e-24, 2.15368e-08, 0, 0.058273, 0.0260515, 0, 0.0267633 )
 shape = SubResource( 7 )
 
 [node name="knifeMesh" type="MeshInstance" parent="Knife/KnifePhys/KnifeCollis"]
@@ -977,12 +979,13 @@ mesh = SubResource( 40 )
 material/0 = null
 
 [node name="RigidBody" type="RigidBody" parent="."]
-transform = Transform( 0.146343, 0, 0, 0, 0.163891, 0, 0, 0, 0.153531, -0.561144, 1.00168, -3.15992 )
+transform = Transform( 0.146343, 0, 0, 0, 0.163891, 0, 0, 0, 0.153531, -0.561144, 1.00168, -3.53739 )
 mode = 1
 
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody"]
 shape = SubResource( 55 )
 
 [node name="CSGMesh" type="CSGMesh" parent="RigidBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.81536 )
 mesh = SubResource( 56 )
 material = SubResource( 57 )

@@ -1,23 +1,22 @@
-extends RigidBody
+extends KinematicBody
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+var isTouched = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#apply_impulse(Vector3(0,0,10), Vector3(0,0,5));
-	#self.add_force(Vector3(0,0,10), Vector3(0,0,5))
-	#self.add_central_force(Vector3(0,0,1000));
-	#set_mode(RigidBody.MODE_KINEMATIC);
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+#Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	#print("We in editor");
-	#self.add_central_force(Vector3(0,0,100));
-	#move_and_collide(Vector3(0,0,10), true, false);
+	if isTouched:
+		get_node("Knife/KnifePhys").move_and_collide(Vector3(0,0,100), true, true, false)
+		#get_node("Knife/KnifePhys").add_central_force(Vector3(0,0,100))
 	pass
+	
+func _input(event):
+	if (event.is_pressed() and event.button_index == BUTTON_LEFT):
+		isTouched = true
+	pass
+
