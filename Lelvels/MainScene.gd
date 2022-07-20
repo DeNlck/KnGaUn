@@ -1,5 +1,7 @@
 extends Spatial
 
+export(NodePath) var node_path
+
 var isTouched = false
 var colis = null
 
