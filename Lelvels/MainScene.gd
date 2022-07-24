@@ -5,8 +5,15 @@ export(NodePath) var node_path
 var isTouched = false
 var colis = null
 
+var KnifeTarget = preload("res://scripts/Targets/KnifeTarget.gd")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var cylinder = KnifeTarget.new(5)
+	cylinder.say("cylinder says")
+	cylinder.privateVar = 5
+	print("Private var: " + str(cylinder.privateVar))
+	
 	pass # Replace with function body.
 
 
