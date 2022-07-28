@@ -12,12 +12,12 @@ _global_script_classes=[ {
 "base": "KnifeTarget",
 "class": "Cylinder",
 "language": "GDScript",
-"path": "res://scripts/Targets/Cylinder.gd"
+"path": "res://Classes/Targets/Cylinder.gd"
 }, {
 "base": "Reference",
 "class": "KnifeTarget",
 "language": "GDScript",
-"path": "res://scripts/Targets/KnifeTarget.gd"
+"path": "res://Classes/Targets/KnifeTarget.gd"
 } ]
 _global_script_class_icons={
 "Cylinder": "",
