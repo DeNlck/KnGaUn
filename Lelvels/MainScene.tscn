@@ -2,12 +2,12 @@
 
 [ext_resource path="res://pillar_material.tres" type="Material" id=2]
 [ext_resource path="res://shield_mat.tres" type="Material" id=3]
-[ext_resource path="res://assets/wire_088144225.material" type="Material" id=4]
-[ext_resource path="res://assets/knife_mat.tres" type="Material" id=5]
+[ext_resource path="res://Assets/wire_088144225.material" type="Material" id=4]
+[ext_resource path="res://Assets/knife_mat.tres" type="Material" id=5]
 [ext_resource path="res://scripts/CylinderRotate.gd" type="Script" id=6]
-[ext_resource path="res://assets/Material.material" type="Material" id=7]
-[ext_resource path="res://assets/test.png" type="Texture" id=8]
-[ext_resource path="res://assets/test2.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Material.material" type="Material" id=7]
+[ext_resource path="res://Assets/test.png" type="Texture" id=8]
+[ext_resource path="res://Assets/test2.png" type="Texture" id=9]
 [ext_resource path="res://Lelvels/MainScene.gd" type="Script" id=10]
 
 [sub_resource type="CylinderShape" id=4]

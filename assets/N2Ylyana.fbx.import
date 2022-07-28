@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/N2Ylyana.fbx-cae6cc47be526bdfff07f27d00615f31.scn"
+path="res://.import/N2Ylyana.fbx-b7ac45bcc7d0f34e0c63d9149727c0c2.scn"
 
 [deps]
 
-source_file="res://assets/N2Ylyana.fbx"
-dest_files=[ "res://.import/N2Ylyana.fbx-cae6cc47be526bdfff07f27d00615f31.scn" ]
+source_file="res://Assets/N2Ylyana.fbx"
+dest_files=[ "res://.import/N2Ylyana.fbx-b7ac45bcc7d0f34e0c63d9149727c0c2.scn" ]
 
 [params]
 

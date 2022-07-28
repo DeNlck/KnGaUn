@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/N1Sasha.fbx-d29f7d52e2b5eea096ddb99aee2660ac.scn"
+path="res://.import/N1Sasha.fbx-d2fac0b5533845e2b799b02b57c86df0.scn"
 
 [deps]
 
-source_file="res://assets/N1Sasha.fbx"
-dest_files=[ "res://.import/N1Sasha.fbx-d29f7d52e2b5eea096ddb99aee2660ac.scn" ]
+source_file="res://Assets/N1Sasha.fbx"
+dest_files=[ "res://.import/N1Sasha.fbx-d2fac0b5533845e2b799b02b57c86df0.scn" ]
 
 [params]
 
