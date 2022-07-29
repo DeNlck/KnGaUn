@@ -111,16 +111,15 @@ surfaces/0 = {
 albedo_texture = ExtResource( 3 )
 
 [node name="CylinderPhys" type="RigidBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.584114, -0.00725675, 0.00073719 )
 mode = 3
 script = ExtResource( 1 )
 
 [node name="CylinderCollis" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 3.55271e-15, 0, -1.06581e-14, 1, 0, 0.158223, 5.82077e-11 )
+transform = Transform( 1, 0, 0, 0, 1, 3.55271e-15, 0, -1.06581e-14, 1, 0, 0, 0 )
 shape = SubResource( 49 )
 
 [node name="Cylinder005" type="MeshInstance" parent="CylinderCollis"]
-transform = Transform( 18.1551, -8.38999, -5.50107e-08, 2.98072e-14, -8.74228e-07, 3, -8.38999, -18.1551, -1.19038e-07, 0, 0.151777, 1.74623e-10 )
+transform = Transform( 18.1551, -8.38999, -5.50107e-08, 0, -8.74228e-07, 3, -8.38999, -18.1551, -1.19038e-07, 0, 0.151777, 1.74623e-10 )
 mesh = SubResource( 9 )
 skeleton = NodePath("../../..")
 material/0 = SubResource( 58 )

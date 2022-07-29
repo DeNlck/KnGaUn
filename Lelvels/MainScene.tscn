@@ -758,7 +758,7 @@ skeleton = NodePath("../..")
 material/0 = null
 
 [node name="CylinderPhys" parent="Trailer" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.584114, -0.00725675, 0.00073719 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.584114, 0.133463, 0.00073719 )
 
 [node name="TargetRack" type="MeshInstance" parent="Trailer"]
 transform = Transform( 41.7364, 0, 0, 0, -1.49261e-05, 3.12934, 0, -41.7364, -1.11914e-06, -0.584114, -0.0928367, 0.000737183 )
