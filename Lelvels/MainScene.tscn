@@ -1,9 +1,11 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://Entity/Targets/Cylinder.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Wheele/Wheele.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Garbage/Garbage.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/wire_088144225.material" type="Material" id=4]
 [ext_resource path="res://Assets/knife_mat.tres" type="Material" id=5]
+[ext_resource path="res://Assets/Garbage/Materiale.material" type="Material" id=6]
 [ext_resource path="res://Assets/Material.material" type="Material" id=7]
 [ext_resource path="res://Lelvels/MainScene.gd" type="Script" id=10]
 
@@ -502,7 +504,7 @@ surfaces/0 = {
 script = ExtResource( 10 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( -1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -0.562585, 1.49704, -3.67693 )
+transform = Transform( -1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, -0.562585, 1.49704, -8.35342 )
 
 [node name="Knife" type="Spatial" parent="."]
 transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -0.541975, 1.41652, -3.16533 )
@@ -527,7 +529,7 @@ material/0 = ExtResource( 5 )
 [node name="Plane" type="MeshInstance" parent="."]
 transform = Transform( 47.7581, 0, 0, 0, 1, 0, 0, 0, 40.4504, 0, -1.0188, 10.0252 )
 mesh = SubResource( 58 )
-material/0 = null
+material/0 = ExtResource( 6 )
 
 [node name="Trailer" type="Spatial" parent="."]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.558404, 1.25967, -1.90398 )
@@ -804,3 +806,6 @@ material = SubResource( 57 )
 
 [node name="Wheele" parent="." instance=ExtResource( 2 )]
 transform = Transform( 0.733931, 0, -0.679224, 0, 1, 0, 0.679224, 0, 0.733931, -40.2659, 19.2278, 44.7385 )
+
+[node name="Garbage" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.684992, 0, 0.72855, 0, 1, 0, -0.72855, 0, -0.684992, -6.66635, 1.3914, 11.5227 )
