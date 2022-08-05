@@ -1,8 +1,19 @@
-class_name KnifeTarget
+class_name KnifeTarget extends RigidBody
 
-var hp: int
+var hp: int = 5
 var isTouched: bool = false
+var tag: String
 
-func _init(_hp:int = 5):
-	hp = _hp
+func _ready():
+	var selfPath = get_node(self.get_path())
+	selfPath.connect("body_entered", Weapon, "_on_Weapon_bodyEntered")
 	pass
+	
+func _on_Weapon_bodyEntered():
+	print("Weapon body entered!!!!!!!!!!!!!!!")
+	pass
+
+#func _init(tag: String, hp:int = 5):
+#	self.hp = hp
+#	self.tag = tag
+#	pass

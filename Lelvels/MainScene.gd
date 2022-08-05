@@ -4,22 +4,19 @@ export(NodePath) var node_path
 
 var isTouched = false
 var colis = null
+onready var knife = get_node("Knife")
 
 var KnifeTarget = preload("res://Classes/Targets/KnifeTarget.gd")
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	var cylinder = KnifeTarget.new(5)
-	
-	
-	pass # Replace with function body.
+	pass
 
 
-#Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if isTouched:
-		colis = get_node("Knife/KnifePhys").move_and_collide(Vector3(0,0,100), true, true, false)
-		if colis.collider.name == "CylinderPhys":
+		colis = knife.move_and_collide(Vector3(0,0,5), true, true, false)
+#		print("Collis class: " + str(colis.collider is KnifeTarget) )
+		if colis.collider is KnifeTarget:
 			print('Collision info: ' + str(colis.collider.name));
 			isTouched = false
 			colis = null

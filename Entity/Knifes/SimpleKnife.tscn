@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Knifes/SimpleKnife/wire_088144225.material" type="Material" id=1]
 [ext_resource path="res://Assets/Knifes/SimpleKnife/knife_mat.tres" type="Material" id=2]
+[ext_resource path="res://Classes/Knifes/Weapon.gd" type="Script" id=3]
 
 [sub_resource type="BoxShape" id=7]
 extents = Vector3( 0.203684, 0.202894, 0.194942 )
@@ -22,21 +23,14 @@ surfaces/0 = {
 "vertex_count": 616
 }
 
-[node name="Knife" type="Spatial"]
-transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -0.541975, 1.41652, -3.16533 )
+[node name="Knife" type="KinematicBody"]
+script = ExtResource( 3 )
 
-[node name="KnifeRigid" type="RigidBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0260515, 0, 0.0267633 )
-visible = false
-
-[node name="KnifePhys" type="KinematicBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00753927, 0, 0 )
-
-[node name="KnifeCollis" type="CollisionShape" parent="KnifePhys"]
+[node name="KnifeCollis" type="CollisionShape" parent="."]
 transform = Transform( 0.574144, 0, -2.18589e-09, 0, 0.123918, -6.61744e-24, 2.15368e-08, 0, 0.058273, 0.0260515, 0, 0.0267633 )
 shape = SubResource( 7 )
 
-[node name="knifeMesh" type="MeshInstance" parent="KnifePhys/KnifeCollis"]
+[node name="knifeMesh" type="MeshInstance" parent="KnifeCollis"]
 transform = Transform( 0.348345, -7.10543e-15, 1.26846e-06, -4.26326e-14, 1.61397, -5.42101e-20, -1.28743e-07, -9.52912e-21, 3.43212, -0.0684814, -0.0255814, -0.626549 )
 mesh = SubResource( 1 )
 skeleton = NodePath("")

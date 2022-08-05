@@ -14,14 +14,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Classes/Targets/Cylinder.gd"
 }, {
-"base": "Reference",
+"base": "RigidBody",
 "class": "KnifeTarget",
 "language": "GDScript",
 "path": "res://Classes/Targets/KnifeTarget.gd"
+}, {
+"base": "KinematicBody",
+"class": "Weapon",
+"language": "GDScript",
+"path": "res://Classes/Knifes/Weapon.gd"
 } ]
 _global_script_class_icons={
 "Cylinder": "",
-"KnifeTarget": ""
+"KnifeTarget": "",
+"Weapon": ""
 }
 
 [application]
