@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Assets/Knifes/SimpleKnife/wire_088144225.material" type="Material" id=1]
 [ext_resource path="res://Assets/Knifes/SimpleKnife/knife_mat.tres" type="Material" id=2]
-[ext_resource path="res://Classes/Knifes/Weapon.gd" type="Script" id=3]
+[ext_resource path="res://Classes/Knifes/SimpleKnife.gd" type="Script" id=3]
 
 [sub_resource type="BoxShape" id=7]
 extents = Vector3( 0.203684, 0.202894, 0.194942 )

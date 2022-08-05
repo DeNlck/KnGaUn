@@ -1,7 +1,6 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Entity/Targets/Cylinder.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scripts/CylinderRotate.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Trailer/Material.material" type="Material" id=3]
 
 [sub_resource type="ArrayMesh" id=41]
@@ -684,10 +683,8 @@ mesh = SubResource( 45 )
 skeleton = NodePath("../..")
 material/0 = null
 
-[node name="CylinderPhys" type="RigidBody" parent="." instance=ExtResource( 1 )]
+[node name="CylinderPhys" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.584114, 0.133463, 0.00073719 )
-mode = 3
-script = ExtResource( 2 )
 
 [node name="TargetRack" type="MeshInstance" parent="."]
 transform = Transform( 41.7364, 0, 0, 0, -1.49261e-05, 3.12934, 0, -41.7364, -1.11914e-06, -0.584114, -0.0928367, 0.000737183 )
