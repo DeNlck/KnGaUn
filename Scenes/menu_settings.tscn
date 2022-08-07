@@ -1,0 +1,98 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Styles/def_yellow.tres" type="Theme" id=1]
+[ext_resource path="res://Scripts/menu_settings.gd" type="Script" id=2]
+
+[node name="menu_settings" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -191.0
+margin_top = -177.5
+margin_right = 191.0
+margin_bottom = 177.5
+
+[node name="btn_back" type="Button" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -122.5
+margin_top = 117.0
+margin_right = 122.5
+margin_bottom = 141.0
+text = "назад"
+
+[node name="btn_default" type="Button" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -122.5
+margin_top = 69.0
+margin_right = 122.5
+margin_bottom = 93.0
+text = "по умолчанию"
+
+[node name="btn_save" type="Button" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -122.5
+margin_top = 25.0
+margin_right = 122.5
+margin_bottom = 49.0
+text = "Сохранить"
+
+[node name="music_volume" type="HSlider" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -115.5
+margin_top = -95.0
+margin_right = 115.5
+margin_bottom = -79.0
+value = 50.0
+
+[node name="Label" type="Label" parent="Panel/music_volume"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -66.0
+margin_top = -25.0
+margin_right = 66.0
+margin_bottom = -7.0
+text = "Громкость музыки"
+
+[node name="music_on" type="CheckButton" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -38.0
+margin_top = -44.0
+margin_right = 38.0
+margin_bottom = -4.0
+pressed = true
+
+[node name="Label" type="Label" parent="Panel/music_on"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -26.5
+margin_top = -19.0
+margin_right = 26.5
+margin_bottom = -1.0
+text = "Музыка"
+
+[connection signal="pressed" from="Panel/btn_back" to="." method="_on_btn_back_pressed"]
+[connection signal="pressed" from="Panel/btn_default" to="." method="_on_btn_default_pressed"]
+[connection signal="pressed" from="Panel/btn_save" to="." method="_on_btn_save_pressed"]

@@ -5,7 +5,7 @@ var isTouched: bool = false
 var tag: String
 
 func _ready():
-	G.KnifeTarget = self
+#	G.KnifeTarget = self
 #	var selfPath = get_node(self.get_path())
 #	print(G.Weapon)
 #	self.connect("ready", G.Weapon, "_on_Weapon_bodyEntered")

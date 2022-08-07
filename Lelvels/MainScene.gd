@@ -24,7 +24,7 @@ func _process(delta):
 		#get_node("Knife/KnifePhys").add_central_force(Vector3(0,0,100))
 	pass
 	
-func _input(event):
-	if (event.is_pressed() and event.button_index == BUTTON_LEFT):
-		isTouched = true
-	pass
+#func _input(event):
+#	if (event.is_pressed() and event.button_index == BUTTON_LEFT):
+#		isTouched = true
+#	pass
