@@ -47,6 +47,7 @@ transform = Transform( 0.733931, 0, -0.679224, 0, 1, 0, 0.679224, 0, 0.733931, -
 transform = Transform( -0.684992, 0, 0.72855, 0, 1, 0, -0.72855, 0, -0.684992, -6.66635, 1.3914, 11.5227 )
 
 [node name="path_to_knives" type="Path" parent="world"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0382499, 0.121508, 0 )
 curve = SubResource( 59 )
 
 [node name="path_follow" type="PathFollow" parent="world/path_to_knives"]
@@ -58,7 +59,7 @@ script = ExtResource( 8 )
 script = ExtResource( 7 )
 
 [node name="GameZone" type="CSGMesh" parent="world"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.580254, 1.31924, -3.16822 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.525783, 1.31924, -0.861824 )
 
 [node name="Switch" type="MeshInstance" parent="world"]
 transform = Transform( 0.0204934, 0, 0, 0, 0.119611, 0, 0, 0, 0.0217535, 0, 2.00467, -2.01031 )

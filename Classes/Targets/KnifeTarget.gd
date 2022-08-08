@@ -5,16 +5,11 @@ var isTouched: bool = false
 var tag: String
 
 func _ready():
-#	G.KnifeTarget = self
-#	var selfPath = get_node(self.get_path())
-#	print(G.Weapon)
-#	self.connect("ready", G.Weapon, "_on_Weapon_bodyEntered")
+	self.connect("body_entered", G.WeaponObject, "_on_Weapon_bodyEntered")
 	pass
-	
-func _on_Weapon_bodyEntered():
-	print("====Test Weapon event connected====")
-	
-#func _init(tag: String, hp:int = 5):
-#	self.hp = hp
-#	self.tag = tag
-#	pass
+
+func _init():
+	self.set_contact_monitor(true)	#Этот метод нужен для того, чтоб работали эвенты RigidBody
+	self.set_max_contacts_reported(4)
+	G.KnifeTargetObject = self
+

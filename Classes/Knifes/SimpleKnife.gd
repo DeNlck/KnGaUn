@@ -1,5 +1,7 @@
 class_name SimpleKnife extends Weapon
 
+func _init():
+	pass
 
-func _process(delta):
+func _ready():
 	pass
