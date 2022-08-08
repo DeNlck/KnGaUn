@@ -62,7 +62,8 @@ margin_left = -115.5
 margin_top = -95.0
 margin_right = 115.5
 margin_bottom = -79.0
-value = 50.0
+min_value = -24.0
+max_value = 0.0
 
 [node name="Label" type="Label" parent="Panel/music_volume"]
 anchor_left = 0.5
@@ -96,3 +97,4 @@ text = "Музыка"
 [connection signal="pressed" from="Panel/btn_back" to="." method="_on_btn_back_pressed"]
 [connection signal="pressed" from="Panel/btn_default" to="." method="_on_btn_default_pressed"]
 [connection signal="pressed" from="Panel/btn_save" to="." method="_on_btn_save_pressed"]
+[connection signal="value_changed" from="Panel/music_volume" to="." method="_on_music_volume_value_changed"]

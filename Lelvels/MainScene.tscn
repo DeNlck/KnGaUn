@@ -50,6 +50,7 @@ transform = Transform( -0.684992, 0, 0.72855, 0, 1, 0, -0.72855, 0, -0.684992, -
 curve = SubResource( 59 )
 
 [node name="path_follow" type="PathFollow" parent="world/path_to_knives"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532166, 1.27225, -7.50994 )
 loop = false
 script = ExtResource( 8 )
 

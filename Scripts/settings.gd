@@ -1,5 +1,6 @@
 extends Node
 
+var bg_music
 var settings_file = "res://settings.json"
 var settings = {}
 var default_settings = {
@@ -9,9 +10,11 @@ var default_settings = {
 			"music_enable": true
 		}
 }
+
+
 func _ready():
 	load_settings()
-
+	
 
 func load_settings():
 	var file = File.new()
@@ -33,7 +36,6 @@ func set_settings(music_volume, music_enable):
 	settings["options"]["music_enable"] = music_enable
 
 
-	
 func save_settings():
 	var file
 	file = File.new()
