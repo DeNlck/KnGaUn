@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Knifes/SimpleKnife/wire_088144225.material" type="Material" id=1]
 [ext_resource path="res://Assets/Knifes/SimpleKnife/knife_mat.tres" type="Material" id=2]
@@ -23,7 +23,51 @@ surfaces/0 = {
 "vertex_count": 616
 }
 
+[sub_resource type="Animation" id=8]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -0.542, 1.235, -3.282 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "pull_out_knife"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 90, 0, 180 ), Vector3( 0, -90, 180 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -0.542, 1.235, -3.282 ), Vector3( -0.542, 1.235, -2.774 ) ]
+}
+
 [node name="Knife" type="KinematicBody"]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -0.542, 1.235, -3.282 )
 script = ExtResource( 3 )
 
 [node name="KnifeCollis" type="CollisionShape" parent="."]
@@ -35,3 +79,7 @@ transform = Transform( 0.348345, -7.10543e-15, 1.26846e-06, -4.26326e-14, 1.6139
 mesh = SubResource( 1 )
 skeleton = NodePath("")
 material/0 = ExtResource( 2 )
+
+[node name="AnimationController" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 8 )
+anims/pull_out_knife = SubResource( 9 )

@@ -16,11 +16,12 @@ func _process(delta):
 	
 	if isTouched:
 #		knife.move_and_slide()
-		colis = knife.move_and_collide(Vector3(0,0,5), true, true, false)
-		if colis.collider is KnifeTarget:
-			print('Collision info: ' + str(colis.collider.name));
-			isTouched = false
-			colis = null
+#		colis = knife.move_and_collide(Vector3(0,20,100), true, true, false)
+		knife.move_and_slide(Vector3(0,0,4))
+#		if colis.collider is KnifeTarget:
+#			print('Collision info: ' + str(colis.collider.name));
+#			isTouched = false
+#			colis = null
 	pass
 	
 func _input(event):

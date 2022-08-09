@@ -3,6 +3,7 @@ extends Node
 var game = null
 var mode = null
 var on_tv_enter = false
+var camera_in_gamezone = false
 
 # Переменные для хранения объектов, которые задействованы на сцене в данный момент времени
 var KnifeTargetObject

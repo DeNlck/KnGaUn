@@ -31,7 +31,6 @@ script = ExtResource( 5 )
 script = ExtResource( 10 )
 
 [node name="Knife" parent="world" instance=ExtResource( 4 )]
-transform = Transform( 4.37114e-08, 3.82137e-15, -1, 8.74228e-08, -1, 0, -1, -8.74228e-08, -4.37114e-08, -0.541701, 1.23496, -2.77406 )
 
 [node name="Plane" type="MeshInstance" parent="world"]
 transform = Transform( 47.7581, 0, 0, 0, 1, 0, 0, 0, 40.4504, 0, -1.0188, 10.0252 )
@@ -51,7 +50,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0382499, 0.121508, 0 )
 curve = SubResource( 59 )
 
 [node name="path_follow" type="PathFollow" parent="world/path_to_knives"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532166, 1.27225, -7.50994 )
+transform = Transform( 0.999913, 0.000324869, 0.0131843, -0.000872567, 0.999136, 0.0415574, -0.0131594, -0.0415653, 0.999049, -0.532166, 1.27225, -7.50994 )
 loop = false
 script = ExtResource( 8 )
 

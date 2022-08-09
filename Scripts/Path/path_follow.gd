@@ -12,3 +12,5 @@ func _process(delta: float) -> void:
 		self.offset = t * 10
 		new_offset = self.offset
 		delta_offset = new_offset - old_offset
+		if self.unit_offset == 1:
+			G.camera_in_gamezone = true
