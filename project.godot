@@ -19,21 +19,21 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Classes/Targets/KnifeTarget.gd"
 }, {
-"base": "Weapon",
+"base": "KinematicBody",
+"class": "MeleeWeapon",
+"language": "GDScript",
+"path": "res://Classes/Knifes/MeleeWeapon.gd"
+}, {
+"base": "MeleeWeapon",
 "class": "SimpleKnife",
 "language": "GDScript",
 "path": "res://Classes/Knifes/SimpleKnife.gd"
-}, {
-"base": "KinematicBody",
-"class": "Weapon",
-"language": "GDScript",
-"path": "res://Classes/Knifes/Weapon.gd"
 } ]
 _global_script_class_icons={
 "Cylinder": "",
 "KnifeTarget": "",
-"SimpleKnife": "",
-"Weapon": ""
+"MeleeWeapon": "",
+"SimpleKnife": ""
 }
 
 [application]
