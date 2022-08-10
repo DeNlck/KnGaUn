@@ -6,7 +6,7 @@ var settings = {}
 var default_settings = {
 	"options":
 		{
-			"music_volume": 50,
+			"music_volume": -12,
 			"music_enable": true
 		}
 }

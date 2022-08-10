@@ -74,6 +74,13 @@ margin_right = 66.0
 margin_bottom = -7.0
 text = "Громкость музыки"
 
+[node name="LabelValue" type="Label" parent="Panel/music_volume"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 133.5
+margin_right = 173.5
+margin_bottom = 18.0
+
 [node name="music_on" type="CheckButton" parent="Panel"]
 anchor_left = 0.5
 anchor_top = 0.5

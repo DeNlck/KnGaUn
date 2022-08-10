@@ -17,6 +17,8 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("ui_pause"):
 		set_pause()
+	if Input.is_action_just_pressed("ui_accept"): #ДЕБАГОВАЯ ФУНКЦИЯ НА ПРОБЕЛ
+		debug_log()
 		
 		
 func pause(s=1):
@@ -50,4 +52,10 @@ func resume_game():
 	
 func open_settings():
 	sub("menu_settings")
+	
+
+func debug_log(): #ВСЕ ЧТО ПОТРЕБУЕТСЯ ДЛЯ ОТСЛЕЖИВАНИЯ В КОНСОЛИ ПО КНОПКЕ
+#	print("ИГРАЕТ ЛИ МУЗЫКА: ",Settings.bg_music.stream_paused)
+#	print("УРОВЕНЬ: ",Settings.bg_music.volume_db)
+	pass
 
