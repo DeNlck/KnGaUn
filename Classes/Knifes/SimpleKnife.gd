@@ -9,11 +9,12 @@ func _ready():
 	pass
 
 func _process(delta):
+#	self.translation.x = rand_range(0.1, 0.15)
 	#Анимация доставания ножа при старте игры
 	if G.camera_in_gamezone and !self.check_pull_out:
 		animPlay_pull_out_knife()
 	
-	if !G.knife_touched:
+	if self.isTouchDisplay:
 		throw_knife()
 
 func animPlay_pull_out_knife():

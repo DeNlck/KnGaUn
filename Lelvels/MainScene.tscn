@@ -98,6 +98,7 @@ script = ExtResource( 10 )
 transform = Transform( -1, 8.74228e-08, 0, 3.82137e-15, 4.37114e-08, -1, -8.74228e-08, -1, -4.37114e-08, -0.542, 1.235, -3.282 )
 visible = false
 script = ExtResource( 4 )
+classPathScene = "res://Entity/Knifes/SimpleKnife.tscn"
 
 [node name="KnifeCollis" type="CollisionShape" parent="world/Knife"]
 transform = Transform( 0.574144, 0, -2.18589e-09, 0, 0.123918, -6.61744e-24, 2.15368e-08, 0, 0.058273, 0.0260515, 0, 0.0267633 )

@@ -9,8 +9,6 @@ var camera_in_gamezone = false
 var KnifeTargetObject
 var MeleeWeaponObject
 
-var knife_touched: bool = true # Переменная проверяющая касание ножа
-
 
 func _ready():
 	OS.center_window()

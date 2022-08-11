@@ -6,11 +6,11 @@ func _init():
 	pass
 	
 func _ready():
-	print("***********************")
-	print("Object: " + str(self))
-	print("Contact monitor: " + str(self.is_contact_monitor_enabled()))
-	print("Max contacts reported: " + str(get_max_contacts_reported()))
-	print("***********************")
+#	print("***********************")
+#	print("Object: " + str(self))
+#	print("Contact monitor: " + str(self.is_contact_monitor_enabled()))
+#	print("Max contacts reported: " + str(get_max_contacts_reported()))
+#	print("***********************")
 	pass
 
 func _process(delta):
