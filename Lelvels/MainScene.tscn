@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Objects/Environment/Trailer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Environment/Wheele.tscn" type="PackedScene" id=2]
@@ -88,6 +88,11 @@ _data = {
 
 [sub_resource type="BoxShape" id=61]
 
+[sub_resource type="CubeMesh" id=62]
+
+[sub_resource type="SpatialMaterial" id=63]
+albedo_color = Color( 0.843137, 0.0823529, 0.0823529, 1 )
+
 [node name="game" type="Node"]
 script = ExtResource( 5 )
 
@@ -95,17 +100,17 @@ script = ExtResource( 5 )
 script = ExtResource( 10 )
 
 [node name="Knife" type="KinematicBody" parent="world"]
-transform = Transform( -1, 8.74228e-08, 0, 3.82137e-15, 4.37114e-08, -1, -8.74228e-08, -1, -4.37114e-08, -0.542, 1.235, -3.282 )
+transform = Transform( -1, 1.50996e-07, -6.60024e-15, 0, -4.37114e-08, -1, -1.50996e-07, -1, 4.37114e-08, -0.542, 1.235, -3.282 )
 visible = false
 script = ExtResource( 4 )
 classPathScene = "res://Entity/Knifes/SimpleKnife.tscn"
 
 [node name="KnifeCollis" type="CollisionShape" parent="world/Knife"]
-transform = Transform( 0.574144, 0, -2.18589e-09, 0, 0.123918, -6.61744e-24, 2.15368e-08, 0, 0.058273, 0.0260515, 0, 0.0267633 )
+transform = Transform( 0.574144, 0, -2.18589e-09, 0, 0.123918, 0, 2.15368e-08, 0, 0.058273, 0.0260515, 0, 0.0267633 )
 shape = SubResource( 7 )
 
 [node name="knifeMesh" type="MeshInstance" parent="world/Knife/KnifeCollis"]
-transform = Transform( 0.348345, -7.10543e-15, 1.26846e-06, -4.26326e-14, 1.61397, -5.42101e-20, -1.28743e-07, -9.52912e-21, 3.43212, -0.0684814, -0.0255814, -0.626549 )
+transform = Transform( 0.348345, -7.10543e-15, 1.26846e-06, -5.68434e-14, 1.61397, -7.10543e-15, -1.28743e-07, -1.42109e-14, 3.43212, -0.0684814, -0.0255814, -0.626551 )
 mesh = SubResource( 1 )
 skeleton = NodePath("")
 material/0 = ExtResource( 13 )
@@ -113,6 +118,11 @@ material/0 = ExtResource( 13 )
 [node name="AnimationController" type="AnimationPlayer" parent="world/Knife"]
 anims/RESET = SubResource( 8 )
 anims/pull_out_knife = SubResource( 9 )
+
+[node name="RayCast" type="RayCast" parent="world/Knife"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.068669, 0, 0.027 )
+cast_to = Vector3( -0.05, 0, 0 )
+debug_shape_custom_color = Color( 0.8, 0.192157, 0.192157, 1 )
 
 [node name="Plane" type="MeshInstance" parent="world"]
 transform = Transform( 47.7581, 0, 0, 0, 1, 0, 0, 0, 40.4504, 0, -1.0188, 10.0252 )
@@ -152,6 +162,11 @@ script = ExtResource( 11 )
 
 [node name="CollisionShape" type="CollisionShape" parent="world/Switch/Area"]
 shape = SubResource( 61 )
+
+[node name="CSGMesh" type="CSGMesh" parent="world"]
+transform = Transform( 0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -0.569, 1.235, -1.522 )
+mesh = SubResource( 62 )
+material = SubResource( 63 )
 
 [connection signal="input_event" from="world/Switch/Area" to="world/Switch" method="_on_Area_input_event"]
 [connection signal="mouse_entered" from="world/Switch/Area" to="world/Switch" method="_on_Area_mouse_entered"]

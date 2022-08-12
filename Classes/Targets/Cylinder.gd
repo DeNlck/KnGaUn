@@ -14,5 +14,5 @@ func _ready():
 	pass
 
 func _process(delta):
-	transform.basis = Basis(Vector3(0, 1, 0), (rotateVelocity * delta)) * transform.basis 
+	transform.basis = Basis(Vector3(0, 1, 0), (rotateVelocity * delta)) * transform.basis
 	pass
