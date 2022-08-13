@@ -5,6 +5,7 @@ onready var animationController = self.get_node("AnimationController")
 onready var rayCast = self.get_node("RayCast")
 var nextObject
 export var classPathScene:String
+var rayCastSuccess:bool = false
 
 func _init():
 	G.MeleeWeaponObject = self
@@ -18,8 +19,10 @@ func _ready():
 	pass
 
 func _physics_process(delta):
-	if self.rayCast.is_colliding():
+	if self.rayCast.is_colliding() and !self.rayCastSuccess:
 		print("RayCast job, object: " + str(self.rayCast.get_collider()) + " hit point: " + str(self.rayCast.get_collision_point()))
+		G.KnifeTargetObject.meleeWeapon_attach(self, self.rayCast.get_collision_point())
+		self.rayCastSuccess = true
 	pass
 
 func _input(event):
