@@ -48,7 +48,4 @@ func open_settings():
 	sub("menu_settings")
 
 func debug_log(): #ВСЕ ЧТО ПОТРЕБУЕТСЯ ДЛЯ ОТСЛЕЖИВАНИЯ В КОНСОЛИ ПО КНОПКЕ
-#	print("ИГРАЕТ ЛИ МУЗЫКА: ",Settings.bg_music.stream_paused)
-#	print("УРОВЕНЬ: ",Settings.bg_music.volume_db)
-	pass
-
+	Settings.applly_settings()

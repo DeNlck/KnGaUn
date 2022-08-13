@@ -1,5 +1,19 @@
 extends Node
 
+
+#----------------------------------ПОДКЛЮЧЕНИЕ_НАСТРОЕК-----------------------------------
+var _GlobalSettings = preload("res://Classes/Settings/GlobalSettings.gd")
+var _MusicSettings = preload("res://Classes/Settings/MusicSettings.gd")
+var _GraphicSettings = preload("res://Classes/Settings/GraphicSettings.gd")
+
+var GlobalSettings
+var SettingsArea = {
+	"MusicSettings" : null,
+	"GraphicSettings" : null
+}
+#-----------------------------------------------------------------------------------------
+
+
 var bg_music
 var settings_file = "res://settings.json"
 var settings = {}
@@ -10,9 +24,14 @@ var default_settings = {
 			"music_enable": true
 		}
 }
+var test_settings = {}
+
 
 
 func _ready():
+	GlobalSettings = _GlobalSettings.new()
+	SettingsArea["MusicSettings"] = _MusicSettings.new()
+	SettingsArea["GraphicSettings"] = _GraphicSettings.new()
 	load_settings()
 	
 
@@ -42,3 +61,11 @@ func save_settings():
 	file.open(settings_file, File.WRITE)
 	file.store_line(to_json(settings))
 	file.close()
+
+
+func applly_settings():
+	for item in SettingsArea:
+		print(item)
+		#test_settings = GlobalSettings.merge_dict(test_settings, item.collect_child_properties())
+	print(test_settings)
+		
