@@ -85,3 +85,8 @@ material/0 = ExtResource( 2 )
 [node name="AnimationController" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 8 )
 anims/pull_out_knife = SubResource( 9 )
+
+[node name="RayCast" type="RayCast" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.069, 0, 0.027 )
+cast_to = Vector3( -0.05, 0, 0 )
+debug_shape_custom_color = Color( 0.8, 0.192157, 0.192157, 1 )
