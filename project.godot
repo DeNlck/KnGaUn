@@ -48,6 +48,10 @@ G="*res://Scripts/global.gd"
 Settings="*res://Scripts/settings.gd"
 BgMusic="*res://Scenes/bg_music.tscn"
 
+[display]
+
+window/size/always_on_top=true
+
 [input]
 
 ui_pause={
