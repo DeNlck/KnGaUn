@@ -13,7 +13,6 @@ var SettingsArea = {
 }
 #-----------------------------------------------------------------------------------------
 
-
 var bg_music
 var settings_file = "res://settings.json"
 var settings = {}
@@ -25,7 +24,6 @@ var default_settings = {
 		}
 }
 var test_settings = {}
-
 
 
 func _ready():
@@ -63,9 +61,9 @@ func save_settings():
 	file.close()
 
 
-func applly_settings():
-	for item in SettingsArea:
-		print(item)
-		#test_settings = GlobalSettings.merge_dict(test_settings, item.collect_child_properties())
-	print(test_settings)
+func collect_general_settings_dict(dest, source):
+	for key in source:
+		var obj = source[key]
+		dest = GlobalSettings.merge_dict(dest, obj.collect_child_properties())
+	return dest
 		

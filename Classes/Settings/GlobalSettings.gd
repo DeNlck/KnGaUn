@@ -69,12 +69,33 @@ func merge_dict(dest, source):
 	return dest
 	
 	
-func collect_child_properties():
-	var properties_to_export = {}
-	var properties = self.get_property_list()
-	for property in properties:
-		if CHILD_PROPERTY_NAMING in property["name"]:
-			merge_dict(properties_to_export, {property["name"] : self.get(property["name"])})
-#	print(properties_to_export)
-	return properties_to_export
+func collect_child_properties(type = "actual"):
+	if type == "default" or type == "actual":
+		var properties_to_export = {}
+		var properties = self.get_property_list()
+		for property in properties:
+			if CHILD_PROPERTY_NAMING in property["name"]:
+				merge_dict(properties_to_export, {property["name"] : self.get(property["name"])[type]})
+	#	print(properties_to_export)
+		return properties_to_export
+	else: 
+		push_error("Допустимы следующие значения аргумента функции: actual и default")
 	
+	
+func write_to_file(dict, path_to_file):
+	var file
+	file = File.new()
+	file.open(path_to_file, File.WRITE)
+	file.store_line(to_json(dict))
+	file.close()
+	
+
+func read_from_file(path_to_file):
+	var file = File.new()
+	if not file.file_exists(path_to_file):
+		reset_settings()
+		return
+	file.open(settings_file, file.READ)
+	var text = file.get_as_text()
+	settings = parse_json(text)
+	file.close()
