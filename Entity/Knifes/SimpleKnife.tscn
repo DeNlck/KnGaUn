@@ -72,11 +72,11 @@ visible = false
 script = ExtResource( 3 )
 classPathScene = "res://Entity/Knifes/SimpleKnife.tscn"
 
-[node name="KnifeCollis" type="CollisionShape" parent="."]
+[node name="Collision" type="CollisionShape" parent="."]
 transform = Transform( 0.574144, 0, -2.18589e-09, 0, 0.123918, 0, 2.15368e-08, 0, 0.058273, 0, 0, 0 )
 shape = SubResource( 7 )
 
-[node name="knifeMesh" type="MeshInstance" parent="KnifeCollis"]
+[node name="knifeMesh" type="MeshInstance" parent="Collision"]
 transform = Transform( 0.348345, -7.10543e-15, 1.26846e-06, -4.26326e-14, 1.61397, -5.42101e-20, -1.28743e-07, -9.52912e-21, 3.43212, -0.0684814, -0.0255814, -0.626549 )
 mesh = SubResource( 1 )
 skeleton = NodePath("")

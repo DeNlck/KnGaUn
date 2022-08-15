@@ -41,7 +41,6 @@ material/0 = ExtResource( 6 )
 
 [node name="CylinderPhys" parent="world/Trailer" index="2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.567554, 0.14031, 0.00549251 )
-mode = 1
 
 [node name="Wheele" parent="world" instance=ExtResource( 2 )]
 transform = Transform( 0.733931, 0, -0.679224, 0, 1, 0, 0.679224, 0, 0.733931, -40.2659, 19.2278, 44.7385 )

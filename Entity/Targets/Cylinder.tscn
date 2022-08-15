@@ -115,7 +115,7 @@ surfaces/0 = {
 albedo_texture = ExtResource( 3 )
 
 [node name="CylinderPhys" type="RigidBody"]
-mode = 3
+mode = 1
 contacts_reported = 1
 contact_monitor = true
 script = ExtResource( 1 )
