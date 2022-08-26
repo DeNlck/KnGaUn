@@ -15,20 +15,18 @@ func _init():
 	print("***********************")
 
 func _ready():
-#	self.animationController = self.get_node("AnimationController")
-	print("Weapon ready. Path: " + self.get_path())
 	pass
 
 func _physics_process(delta):
 	if self.rayCast.is_colliding() and !self.rayCastSuccess:
-		print("RayCast job, object: " + str(self.rayCast.get_collider()) + " hit point: " + str(self.rayCast.get_collision_point()))
-		
-		self.nextObject = load(self.classPathScene).instance()
+#		print("RayCast job, object: " + str(self.rayCast.get_collider()) + " hit point: " + str(self.rayCast.get_collision_point()))	
 		G.KnifeTargetObject.meleeWeapon_attach(self,self.rayCast.get_collision_point())
-		get_node("/root/game/world").add_child(self.nextObject)
-		
 		self.rayCastSuccess = true
 		self.rayCast.enabled = false
+		
+		self.nextObject = load(self.classPathScene).instance()
+		G.KnifeTargetObject.call_signal()
+		get_node("/root/game/world").add_child(self.nextObject)
 		#Хз зачем, пока удаляю скрипт у объекта и ненужные ноды, чтоб не грузили процесс
 		#В идеале нужно подменять сцену с объектом на болванку?
 		self.animationController.queue_free()
