@@ -2,70 +2,65 @@ extends Node
 
 
 #----------------------------------ПОДКЛЮЧЕНИЕ_НАСТРОЕК-----------------------------------
-var _GlobalSettings = preload("res://Classes/Settings/GlobalSettings.gd")
+var _BaseSettings = preload("res://Classes/Settings/BaseSettings.gd")
 var _MusicSettings = preload("res://Classes/Settings/MusicSettings.gd")
-var _GraphicSettings = preload("res://Classes/Settings/GraphicSettings.gd")
+var _DifficultySettings = preload("res://Classes/Settings/DifficultySettings.gd")
 
-var GlobalSettings
+var BaseSettings
 var SettingsArea = {
 	"MusicSettings" : null,
-	"GraphicSettings" : null
+	"DifficultySettings" : null
 }
 #-----------------------------------------------------------------------------------------
 
 
 var bg_music
-var settings_file = "res://settings.json"
+const SETTINGS_FILE = "res://settings.json"
 var settings = {}
-var default_settings = {
-	"options":
-		{
-			"music_volume": -12,
-			"music_enable": true
-		}
-}
-var test_settings = {}
 
 
-
-func _ready():
-	GlobalSettings = _GlobalSettings.new()
+func _ready(): #ИНИЦИАЛИЗАЦИЯ НАСТРОЕК
+	BaseSettings = _BaseSettings.new()
 	SettingsArea["MusicSettings"] = _MusicSettings.new()
-	SettingsArea["GraphicSettings"] = _GraphicSettings.new()
+	SettingsArea["DifficultySettings"] = _DifficultySettings.new()
 	load_settings()
 	
 
 func load_settings():
 	var file = File.new()
-	if not file.file_exists(settings_file):
+	if not file.file_exists(SETTINGS_FILE):
 		reset_settings()
 		return
-	file.open(settings_file, file.READ)
+	file.open(SETTINGS_FILE, file.READ)
 	var text = file.get_as_text()
 	settings = parse_json(text)
 	file.close()
 	
 	
 func reset_settings():
-	settings = default_settings.duplicate(true)
+	#settings = settings_default.duplicate(true)
+	pass
+	#тут надо задуматься о реализации дефолта
 	
 
-func set_settings(music_volume, music_enable):
-	settings["options"]["music_volume"] = music_volume
-	settings["options"]["music_enable"] = music_enable
+func set_settings(type = "actual"):
+	for item in SettingsArea:
+		SettingsArea[item].apply(type)
 
 
-func save_settings():
+func save_settings_to_file():
 	var file
 	file = File.new()
-	file.open(settings_file, File.WRITE)
+	file.open(SETTINGS_FILE, File.WRITE)
 	file.store_line(to_json(settings))
 	file.close()
 
 
-func applly_settings():
+func update_settings_dictionary(type):
 	for item in SettingsArea:
-		print(item)
-		#test_settings = GlobalSettings.merge_dict(test_settings, item.collect_child_properties())
-	print(test_settings)
-		
+		settings = BaseSettings.merge_dict(settings, SettingsArea[item].collect_child_properties(type))
+
+
+func save_settings(type = "actual"):
+	update_settings_dictionary(type)
+	save_settings_to_file()

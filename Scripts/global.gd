@@ -48,4 +48,4 @@ func open_settings():
 	sub("menu_settings")
 
 func debug_log(): #ВСЕ ЧТО ПОТРЕБУЕТСЯ ДЛЯ ОТСЛЕЖИВАНИЯ В КОНСОЛИ ПО КНОПКЕ
-	Settings.applly_settings()
+	Settings.set_settings()
