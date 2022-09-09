@@ -5,6 +5,7 @@ onready var animationController = self.get_node("AnimationController")
 onready var rayCast = self.get_node("RayCast")
 var nextObject
 export var classPathScene:String
+var rayCastSuccess:bool = true
 
 func _init():
 	G.MeleeWeaponObject = self
@@ -14,12 +15,23 @@ func _init():
 	print("***********************")
 
 func _ready():
-#	self.animationController = self.get_node("AnimationController")
 	pass
 
 func _physics_process(delta):
-	if self.rayCast.is_colliding():
-		print("RayCast job, object: " + str(self.rayCast.get_collider()) + " hit point: " + str(self.rayCast.get_collision_point()))
+	if self.rayCast.is_colliding() and !self.rayCastSuccess:
+#		print("RayCast job, object: " + str(self.rayCast.get_collider()) + " hit point: " + str(self.rayCast.get_collision_point()))	
+		G.KnifeTargetObject.meleeWeapon_attach(self,self.rayCast.get_collision_point())
+		self.rayCastSuccess = true
+		self.rayCast.enabled = false
+		
+		self.nextObject = load(self.classPathScene).instance()
+		G.KnifeTargetObject.call_signal()
+		get_node("/root/game/world").add_child(self.nextObject)
+		#Хз зачем, пока удаляю скрипт у объекта и ненужные ноды, чтоб не грузили процесс
+		#В идеале нужно подменять сцену с объектом на болванку?
+		self.animationController.queue_free()
+		self.rayCast.queue_free()
+		self.set_script(null)
 	pass
 
 func _input(event):
@@ -31,10 +43,7 @@ func _input(event):
 
 func _on_KnifeTarget_body_entered(body):
 	if body as MeleeWeapon:
-		self.rayCast.enabled = false
 		print("KnifeTarget event body: " + str(body))
-#		print("Collide bodies: " + str(self.get))
 		self.isTouchDisplay = false
-		self.nextObject = load(self.classPathScene).instance()
-		get_node("/root/game/world").add_child(self.nextObject)
+		self.rayCastSuccess = false
 	pass

@@ -24,7 +24,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Classes/Knifes/MeleeWeapon.gd"
 }, {
-"base": "Weapon",
+"base": "MeleeWeapon",
 "class": "SimpleKnife",
 "language": "GDScript",
 "path": "res://Classes/Knifes/SimpleKnife.gd"
@@ -47,6 +47,10 @@ config/icon="res://icon.png"
 G="*res://Scripts/global.gd"
 Settings="*res://Scripts/settings.gd"
 BgMusic="*res://Scenes/bg_music.tscn"
+
+[display]
+
+window/size/always_on_top=true
 
 [input]
 

@@ -67,16 +67,16 @@ tracks/1/keys = {
 }
 
 [node name="Knife" type="KinematicBody"]
-transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -0.542, 1.235, -3.282 )
+transform = Transform( -1, 8.74228e-08, 0, 3.82137e-15, 4.37114e-08, -1, -8.74228e-08, -1, -4.37114e-08, -0.542, 1.235, -3.282 )
 visible = false
 script = ExtResource( 3 )
 classPathScene = "res://Entity/Knifes/SimpleKnife.tscn"
 
-[node name="KnifeCollis" type="CollisionShape" parent="."]
-transform = Transform( 0.574144, 0, -2.18589e-09, 0, 0.123918, -6.61744e-24, 2.15368e-08, 0, 0.058273, 0.0260515, 0, 0.0267633 )
+[node name="Collision" type="CollisionShape" parent="."]
+transform = Transform( 0.574144, 0, -2.18589e-09, 0, 0.123918, 0, 2.15368e-08, 0, 0.058273, 0, 0, 0 )
 shape = SubResource( 7 )
 
-[node name="knifeMesh" type="MeshInstance" parent="KnifeCollis"]
+[node name="knifeMesh" type="MeshInstance" parent="Collision"]
 transform = Transform( 0.348345, -7.10543e-15, 1.26846e-06, -4.26326e-14, 1.61397, -5.42101e-20, -1.28743e-07, -9.52912e-21, 3.43212, -0.0684814, -0.0255814, -0.626549 )
 mesh = SubResource( 1 )
 skeleton = NodePath("")
@@ -87,6 +87,5 @@ anims/RESET = SubResource( 8 )
 anims/pull_out_knife = SubResource( 9 )
 
 [node name="RayCast" type="RayCast" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.069, 0, 0.027 )
-cast_to = Vector3( -0.05, 0, 0 )
+cast_to = Vector3( -0.135, 0, 0 )
 debug_shape_custom_color = Color( 0.8, 0.192157, 0.192157, 1 )
