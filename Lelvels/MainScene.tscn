@@ -1,8 +1,7 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Objects/Environment/Trailer.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Objects/Environment/Wheele.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Objects/Environment/Garbage.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Objects/Environment/Park.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Entity/Knifes/SimpleKnife.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/game.gd" type="Script" id=5]
 [ext_resource path="res://Assets/Garbage/Materiale.material" type="Material" id=6]
@@ -48,12 +47,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.567554, 0.14031, 0.00549251
 [node name="Knife" parent="world/Trailer/CylinderPhys/WeaponMeleeContainer" index="0"]
 transform = Transform( 4.37114e-08, 3.82137e-15, 1, 8.74228e-08, -1, 0, 1, 8.74228e-08, -4.37114e-08, -0.542, 1.235, -3.282 )
 
-[node name="Wheele" parent="world" instance=ExtResource( 2 )]
-transform = Transform( 0.733931, 0, -0.679224, 0, 1, 0, 0.679224, 0, 0.733931, -40.2659, 19.2278, 44.7385 )
-
-[node name="Garbage" parent="world" instance=ExtResource( 3 )]
-transform = Transform( -0.684992, 0, 0.72855, 0, 1, 0, -0.72855, 0, -0.684992, -6.66635, 1.3914, 11.5227 )
-
 [node name="path_to_knives" type="Path" parent="world"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0481683, 0.194599, 0 )
 curve = SubResource( 59 )
@@ -79,6 +72,8 @@ script = ExtResource( 11 )
 
 [node name="CollisionShape" type="CollisionShape" parent="world/Switch/Area"]
 shape = SubResource( 61 )
+
+[node name="Park" parent="." instance=ExtResource( 2 )]
 
 [connection signal="input_event" from="world/Switch/Area" to="world/Switch" method="_on_Area_input_event"]
 [connection signal="mouse_entered" from="world/Switch/Area" to="world/Switch" method="_on_Area_mouse_entered"]
