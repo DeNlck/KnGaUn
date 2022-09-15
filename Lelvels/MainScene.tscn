@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Objects/Environment/Trailer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Environment/Park.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Objects/Puppet.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Entity/Knifes/SimpleKnife.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/game.gd" type="Script" id=5]
 [ext_resource path="res://Assets/Garbage/Materiale.material" type="Material" id=6]
@@ -74,6 +75,10 @@ script = ExtResource( 11 )
 shape = SubResource( 61 )
 
 [node name="Park" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.57257, 68.9206 )
+
+[node name="puppet_1" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.246206, 0.0433906, -1.89666e-09, 0, -1.09278e-08, -0.25, -0.0433906, -0.246206, 1.0762e-08, -1.65793, 0.0767391, -3.31026 )
 
 [connection signal="input_event" from="world/Switch/Area" to="world/Switch" method="_on_Area_input_event"]
 [connection signal="mouse_entered" from="world/Switch/Area" to="world/Switch" method="_on_Area_mouse_entered"]
