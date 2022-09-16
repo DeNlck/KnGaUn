@@ -1,8 +1,7 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://Objects/Environment/Trailer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/StandardPuppet.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/Environment/Park.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Objects/Puppet.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Entity/Knifes/SimpleKnife.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/game.gd" type="Script" id=5]
 [ext_resource path="res://Assets/Garbage/Materiale.material" type="Material" id=6]
@@ -31,25 +30,17 @@ script = ExtResource( 5 )
 script = ExtResource( 10 )
 
 [node name="Knife" parent="world" instance=ExtResource( 4 )]
+transform = Transform( -0.809437, -0.587206, 2.56676e-08, 0, -4.37114e-08, -1, 0.587206, -0.809437, 3.53816e-08, -0.542, 1.235, -3.282 )
+visible = true
 
 [node name="Plane" type="MeshInstance" parent="world"]
 transform = Transform( 47.7581, 0, 0, 0, 1, 0, 0, 0, 40.4504, 0, -1.0188, 10.0252 )
+visible = false
 mesh = SubResource( 58 )
 material/0 = ExtResource( 6 )
 
-[node name="Trailer" parent="world" instance=ExtResource( 1 )]
-
-[node name="Trailer" parent="world/Trailer/TrailerParts" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 3.08557e-22, 3.38813e-21, 1.51324e-21, 1, 0, 0, 0 )
-
-[node name="CylinderPhys" parent="world/Trailer" index="2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.567554, 0.14031, 0.00549251 )
-
-[node name="Knife" parent="world/Trailer/CylinderPhys/WeaponMeleeContainer" index="0"]
-transform = Transform( 4.37114e-08, 3.82137e-15, 1, 8.74228e-08, -1, 0, 1, 8.74228e-08, -4.37114e-08, -0.542, 1.235, -3.282 )
-
 [node name="path_to_knives" type="Path" parent="world"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0481683, 0.194599, 0 )
+transform = Transform( 0.790978, 0, 0.611845, 0, 1, 0, -0.611845, 0, 0.790978, -0.0979304, 0.667462, 3.56186 )
 curve = SubResource( 59 )
 
 [node name="path_follow" type="PathFollow" parent="world/path_to_knives"]
@@ -61,10 +52,10 @@ script = ExtResource( 8 )
 script = ExtResource( 7 )
 
 [node name="GameZone" type="CSGMesh" parent="world"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.532146, 1.34628, -0.895515 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.967484, 1.65431, 3.52852 )
 
 [node name="Switch" type="MeshInstance" parent="world"]
-transform = Transform( 0.0204934, 0, 0, 0, 0.119611, 0, 0, 0, 0.0217535, 0, 2.00467, -2.01031 )
+transform = Transform( 0.230476, 0, 0.0339368, 0, 0.43198, 0, -0.186716, 0, 0.0418906, -1.81759, 1.89423, -0.261538 )
 mesh = SubResource( 60 )
 material/0 = ExtResource( 9 )
 script = ExtResource( 11 )
@@ -72,18 +63,21 @@ script = ExtResource( 11 )
 [node name="Area" type="Area" parent="world/Switch"]
 
 [node name="CollisionShape" type="CollisionShape" parent="world/Switch/Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 61 )
 
-[node name="Park" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.57257, 68.9206 )
+[node name="Park" parent="world" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 33.881 )
 
-[node name="puppet_1" parent="." instance=ExtResource( 3 )]
-transform = Transform( -0.246206, 0.0433906, -1.89666e-09, 0, -1.09278e-08, -0.25, -0.0433906, -0.246206, 1.0762e-08, -1.65793, 0.0767391, -3.31026 )
+[node name="Rock" parent="world/Park" index="4"]
+layers = 524288
+
+[node name="StandardPuppet" parent="world" instance=ExtResource( 1 )]
+transform = Transform( -0.99757, 0, 0.0696694, 0, 1, 0, -0.0696694, 0, -0.99757, -2.40524, 1.4436, 3.02475 )
 
 [connection signal="input_event" from="world/Switch/Area" to="world/Switch" method="_on_Area_input_event"]
 [connection signal="mouse_entered" from="world/Switch/Area" to="world/Switch" method="_on_Area_mouse_entered"]
 [connection signal="mouse_exited" from="world/Switch/Area" to="world/Switch" method="_on_Area_mouse_exited"]
 
 [editable path="world/Knife"]
-[editable path="world/Trailer"]
-[editable path="world/Trailer/CylinderPhys"]
+[editable path="world/Park"]

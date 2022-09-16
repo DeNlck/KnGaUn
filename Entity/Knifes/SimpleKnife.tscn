@@ -37,6 +37,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector3( -0.542, 1.235, -3.282 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 90, -144.041, 0 ) ]
+}
 
 [sub_resource type="Animation" id=9]
 resource_name = "pull_out_knife"
@@ -51,7 +63,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( 90, 0, 180 ), Vector3( 0, -90, 180 ) ]
+"values": [ Vector3( 90, -144, 0 ), Vector3( 0, -55.225, -180 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:translation")
@@ -63,11 +75,11 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( -0.542, 1.235, -3.282 ), Vector3( -0.542, 1.235, -2.774 ) ]
+"values": [ Vector3( -2.762, 1.719, 1.066 ), Vector3( -2.421, 1.798, 1.557 ) ]
 }
 
 [node name="Knife" type="KinematicBody"]
-transform = Transform( -1, 8.74228e-08, 0, 3.82137e-15, 4.37114e-08, -1, -8.74228e-08, -1, -4.37114e-08, -0.542, 1.235, -3.282 )
+transform = Transform( -0.809437, -0.587206, 2.56676e-08, 0, -4.37114e-08, -1, 0.587206, -0.809437, 3.53816e-08, -0.542, 1.235, -3.282 )
 visible = false
 script = ExtResource( 3 )
 classPathScene = "res://Entity/Knifes/SimpleKnife.tscn"

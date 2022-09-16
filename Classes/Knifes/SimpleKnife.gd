@@ -23,5 +23,6 @@ func animPlay_pull_out_knife():
 	self.check_pull_out = true
 
 func throw_knife():
-	self.move_and_slide(Vector3(0,0,4))
+#	print(self.look_at(get_node("../Park/Trailer/CylinderPhys").transform.origin, Vector3.UP))
+	self.move_and_slide(Vector3(2.8,0,4))
 	pass
