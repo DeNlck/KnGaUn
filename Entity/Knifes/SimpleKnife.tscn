@@ -50,7 +50,7 @@ tracks/1/keys = {
 "values": [ Vector3( 90, -144.041, 0 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=60]
 resource_name = "pull_out_knife"
 length = 0.3
 tracks/0/type = "value"
@@ -85,7 +85,7 @@ script = ExtResource( 3 )
 classPathScene = "res://Entity/Knifes/SimpleKnife.tscn"
 
 [node name="Collision" type="CollisionShape" parent="."]
-transform = Transform( 0.574144, 0, -2.18589e-09, 0, 0.123918, 0, 2.15368e-08, 0, 0.058273, 0, 0, 0 )
+transform = Transform( 0.574144, 7.82311e-08, -2.18589e-09, -5.96046e-08, 0.123918, 2.22045e-15, 2.15368e-08, 3.9968e-15, 0.058273, 0.12146, -7.15256e-07, 0 )
 shape = SubResource( 7 )
 
 [node name="knifeMesh" type="MeshInstance" parent="Collision"]
@@ -96,8 +96,9 @@ material/0 = ExtResource( 2 )
 
 [node name="AnimationController" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 8 )
-anims/pull_out_knife = SubResource( 9 )
+anims/pull_out_knife = SubResource( 60 )
 
 [node name="RayCast" type="RayCast" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.126, 0, 0 )
 cast_to = Vector3( -0.135, 0, 0 )
 debug_shape_custom_color = Color( 0.8, 0.192157, 0.192157, 1 )
