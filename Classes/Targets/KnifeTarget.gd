@@ -9,6 +9,9 @@ var test
 var posTest
 var rotateTest
 
+func _init():
+	G.KnifeTargetObject = self
+
 func _ready():
 	# Ивент на столкновение объектов класса MeleeWeapon с любой целью этого класса
 	print("Area info: " + str(self.get_node("Area")))
@@ -53,6 +56,3 @@ func delete_signal():
 func call_signal():
 	print("---Call signal!! Id obj: " + str(G.MeleeWeaponObject))
 	self.get_node("Area").connect("body_entered", G.MeleeWeaponObject, "_on_KnifeTarget_body_entered")
-
-func _init():
-	G.KnifeTargetObject = self

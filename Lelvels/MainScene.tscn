@@ -29,14 +29,20 @@ script = ExtResource( 5 )
 [node name="world" type="Spatial" parent="."]
 script = ExtResource( 10 )
 
-[node name="Knife" parent="world" instance=ExtResource( 4 )]
-visible = true
-
 [node name="Plane" type="MeshInstance" parent="world"]
 transform = Transform( 47.7581, 0, 0, 0, 1, 0, 0, 0, 40.4504, 0, -1.0188, 10.0252 )
 visible = false
 mesh = SubResource( 58 )
 material/0 = ExtResource( 6 )
+
+[node name="WeaponStartPosition" type="Spatial" parent="world"]
+transform = Transform( 0.811258, 0, 0.584689, 0, 1, 0, -0.584689, 0, 0.811258, -2.38, 1.797, 1.669 )
+
+[node name="SimpleKnife" parent="world" instance=ExtResource( 4 )]
+transform = Transform( 0.811258, 0, 0.584689, 0, 1, 0, -0.584689, 0, 0.811258, -2.3798, 1.79713, 1.66863 )
+
+[node name="Knife" parent="world/SimpleKnife" index="0"]
+transform = Transform( -4.37113e-08, 0, 1, 0, 1, 0, -0.999999, 0, -4.37114e-08, -4.76837e-07, 0, -0.915027 )
 
 [node name="path_to_knives" type="Path" parent="world"]
 transform = Transform( 0.790978, 0, 0.611845, 0, 1, 0, -0.611845, 0, 0.790978, -0.0979304, 0.667462, 3.56186 )
@@ -51,7 +57,7 @@ script = ExtResource( 8 )
 script = ExtResource( 7 )
 
 [node name="GameZone" type="CSGMesh" parent="world"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.967484, 1.65431, 3.52852 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00503, 1.65431, 3.52852 )
 
 [node name="Switch" type="MeshInstance" parent="world"]
 transform = Transform( 0.230476, 0, 0.0339368, 0, 0.43198, 0, -0.186716, 0, 0.0418906, -1.81759, 1.89423, -0.261538 )
@@ -77,5 +83,5 @@ transform = Transform( -0.99757, 0, 0.0696694, 0, 1, 0, -0.0696694, 0, -0.99757,
 [connection signal="mouse_entered" from="world/Switch/Area" to="world/Switch" method="_on_Area_mouse_entered"]
 [connection signal="mouse_exited" from="world/Switch/Area" to="world/Switch" method="_on_Area_mouse_exited"]
 
-[editable path="world/Knife"]
+[editable path="world/SimpleKnife"]
 [editable path="world/Park"]

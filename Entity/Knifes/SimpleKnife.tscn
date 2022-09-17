@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Knifes/SimpleKnife/wire_088144225.material" type="Material" id=1]
 [ext_resource path="res://Assets/Knifes/SimpleKnife/knife_mat.tres" type="Material" id=2]
 [ext_resource path="res://Classes/Knifes/SimpleKnife.gd" type="Script" id=3]
+
+[sub_resource type="BoxShape" id=61]
+extents = Vector3( 0.200856, 0.196787, 0.191589 )
 
 [sub_resource type="BoxShape" id=7]
 extents = Vector3( 0.203684, 0.202894, 0.194942 )
@@ -35,7 +38,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( -0.542, 1.235, -3.282 ) ]
+"values": [ Vector3( -4.76837e-07, 0, -0.915027 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:rotation_degrees")
@@ -47,7 +50,49 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 90, -144.041, 0 ) ]
+"values": [ Vector3( 0, 90, 0 ) ]
+}
+
+[sub_resource type="Animation" id=62]
+resource_name = "collide_to_knife"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( -0.487286, 0.209587, -0.538579 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 90, 0 ), Vector3( 43.341, -78.4329, 141.667 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "collide_same_object"
+} ]
 }
 
 [sub_resource type="Animation" id=60]
@@ -63,7 +108,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( 90, -144, 0 ), Vector3( 0, -55.225, -180 ) ]
+"values": [ Vector3( 90, 0, 0 ), Vector3( 0, 90, 0 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:translation")
@@ -75,30 +120,39 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( -2.762, 1.719, 1.066 ), Vector3( -2.421, 1.798, 1.557 ) ]
+"values": [ Vector3( 0, -0.079, -0.341 ), Vector3( 0, 0, 0 ) ]
 }
 
-[node name="Knife" type="KinematicBody"]
-transform = Transform( -0.809437, -0.587206, 2.56676e-08, 0, -4.37114e-08, -1, 0.587206, -0.809437, 3.53816e-08, -0.542, 1.235, -3.282 )
+[node name="SimpleKnife" type="Spatial"]
+
+[node name="Knife" type="KinematicBody" parent="."]
+transform = Transform( -4.37113e-08, 0, 1, 0, 1, 0, -0.999999, 0, -4.37114e-08, 0, 0, -1 )
 visible = false
 script = ExtResource( 3 )
 classPathScene = "res://Entity/Knifes/SimpleKnife.tscn"
 
-[node name="Collision" type="CollisionShape" parent="."]
-transform = Transform( 0.574144, 7.82311e-08, -2.18589e-09, -5.96046e-08, 0.123918, 2.22045e-15, 2.15368e-08, 3.9968e-15, 0.058273, 0.12146, -7.15256e-07, 0 )
+[node name="Area" type="Area" parent="Knife"]
+transform = Transform( 0.281479, -6.86951e-15, -2.60884e-08, 1.77636e-14, 0.108853, -4.35607e-15, 8.9407e-08, 5.77316e-15, 0.0821338, 0.181563, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Knife/Area"]
+shape = SubResource( 61 )
+
+[node name="Collision" type="CollisionShape" parent="Knife"]
+transform = Transform( 0.574144, 7.33416e-08, -3.25963e-09, -4.98258e-08, 0.123918, 2.79397e-09, 1.30385e-08, 3.72529e-09, 0.058273, 0.12146, -4.61936e-07, -3.57628e-07 )
 shape = SubResource( 7 )
 
-[node name="knifeMesh" type="MeshInstance" parent="Collision"]
-transform = Transform( 0.348345, -7.10543e-15, 1.26846e-06, -4.26326e-14, 1.61397, -5.42101e-20, -1.28743e-07, -9.52912e-21, 3.43212, -0.0684814, -0.0255814, -0.626549 )
+[node name="knifeMesh" type="MeshInstance" parent="Knife/Collision"]
+transform = Transform( 0.348345, -1.41745e-07, 2.9974e-07, -3.04532e-08, -1.62137, 0, 3.04533e-08, 7.10543e-15, -3.42863, -0.0684814, -0.0255814, 0.621396 )
 mesh = SubResource( 1 )
 skeleton = NodePath("")
 material/0 = ExtResource( 2 )
 
-[node name="AnimationController" type="AnimationPlayer" parent="."]
+[node name="AnimationController" type="AnimationPlayer" parent="Knife"]
 anims/RESET = SubResource( 8 )
+anims/collide_to_knife = SubResource( 62 )
 anims/pull_out_knife = SubResource( 60 )
 
-[node name="RayCast" type="RayCast" parent="."]
+[node name="RayCast" type="RayCast" parent="Knife"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.126, 0, 0 )
 cast_to = Vector3( -0.135, 0, 0 )
 debug_shape_custom_color = Color( 0.8, 0.192157, 0.192157, 1 )

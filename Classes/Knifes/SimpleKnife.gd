@@ -1,6 +1,8 @@
 class_name SimpleKnife extends MeleeWeapon
 
 var check_pull_out = false
+var throw_vector = Vector3(0.056,0,0.08)
+var position_info
 
 func _init():
 	pass
@@ -23,6 +25,14 @@ func animPlay_pull_out_knife():
 	self.check_pull_out = true
 
 func throw_knife():
-#	print(self.look_at(get_node("../Park/Trailer/CylinderPhys").transform.origin, Vector3.UP))
-	self.move_and_slide(Vector3(2.8,0,4))
+	position_info = self.move_and_collide(throw_vector)
+	if position_info:
+		print("Position_info: " + str(position_info.collider))
+		# Если последняя позиция ножа не равна вектору броска и столкнулся с любым киниматиком
+		if position_info.collider is KinematicBody:
+			self.isTouchDisplay = false
+			self.animationController.play("collide_to_knife")
+		
+#		self.collide_same_object()
+#		print("Collide to: " + str(self.get_slide_collision(1).collider) + " " + str(self.get_slide_collision(1).collider is KinematicBody))
 	pass
