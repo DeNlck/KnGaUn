@@ -59,9 +59,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -115.5
-margin_top = -95.0
+margin_top = -140.0
 margin_right = 115.5
-margin_bottom = -79.0
+margin_bottom = -124.0
 min_value = -24.0
 max_value = 0.0
 
@@ -69,10 +69,32 @@ max_value = 0.0
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -66.0
-margin_top = -25.0
+margin_top = -24.0
 margin_right = 66.0
-margin_bottom = -7.0
+margin_bottom = -6.0
 text = "Громкость музыки"
+
+[node name="music_difficult" type="HSlider" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -115.5
+margin_top = -34.0
+margin_right = 115.5
+margin_bottom = -18.0
+min_value = 3.0
+max_value = 1.0
+value = 3.0
+
+[node name="Label" type="Label" parent="Panel/music_difficult"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -66.0
+margin_top = -24.0
+margin_right = 66.0
+margin_bottom = -6.0
+text = "Сложность игры"
 
 [node name="music_on" type="CheckButton" parent="Panel"]
 anchor_left = 0.5
@@ -80,18 +102,18 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -38.0
-margin_top = -44.0
+margin_top = -103.0
 margin_right = 38.0
-margin_bottom = -4.0
+margin_bottom = -63.0
 pressed = true
 
 [node name="Label" type="Label" parent="Panel/music_on"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -26.5
-margin_top = -19.0
+margin_top = -14.0
 margin_right = 26.5
-margin_bottom = -1.0
+margin_bottom = 4.0
 text = "Музыка"
 
 [connection signal="pressed" from="Panel/btn_back" to="." method="_on_btn_back_pressed"]

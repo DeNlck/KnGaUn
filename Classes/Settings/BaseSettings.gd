@@ -5,7 +5,14 @@ func set_property(property, value):
 	var temp = self.get(property)
 	temp["actual"] = value
 	self.set(property, temp)
-	print(self.get(property)["actual"])
+	
+func get_property(property, type = 'actual'):
+	var item = self.get(property)
+	if item != null:
+		return item[type]
+	else:
+		return null
+
 
 
 func _init():

@@ -19,12 +19,14 @@ const SETTINGS_FILE = "res://settings.json"
 var settings = {}
 
 
+
 func _ready(): #ИНИЦИАЛИЗАЦИЯ НАСТРОЕК
 	BaseSettings = _BaseSettings.new()
 	SettingsArea["MusicSettings"] = _MusicSettings.new()
 	SettingsArea["DifficultySettings"] = _DifficultySettings.new()
 	load_settings()
-	
+	update_childs_from_settings_object()
+
 
 func load_settings():
 	var file = File.new()
@@ -35,6 +37,16 @@ func load_settings():
 	var text = file.get_as_text()
 	settings = parse_json(text)
 	file.close()
+
+func update_childs_from_settings_object(): #так делать нельзя, осуждаю
+	print(settings)
+	for item in SettingsArea:
+		for property in settings:
+			if (SettingsArea[item].get_property(property) != null):
+				SettingsArea[item].set_property(property, settings[property])
+				continue
+	
+	#print(SettingsArea["MusicSettings"].get_property("ChildMusicVolume"))
 	
 	
 func reset_settings():
