@@ -1,9 +1,11 @@
 class_name KnifeTarget extends RigidBody
 
 
-var hp: int = 5
+var hp: int = 4
 var isTouched: bool = false
 var tag: String
+
+onready var WeaponMeleeContainer
 
 var test
 var posTest
@@ -19,12 +21,14 @@ func _ready():
 	pass
 	
 func meleeWeapon_attach(object:MeleeWeapon, hit_point):
+	self.take_damage()
+	
 	print("I'm in meleWeapon attach")
 	print("Weapon onbject global rotation: " + str(object.rotation_degrees))
 	delete_signal()
 	rotateTest = object.global_transform.basis
 	object.get_parent().remove_child(object)
-	self.get_node("WeaponMeleeContainer").add_child(object)
+	self.WeaponMeleeContainer.add_child(object)
 	test = self.to_local(hit_point)
 #	self.get_node("WeaponMeleeContainer/" + object.name).translate(test)
 	object.translation.x = test.x
@@ -56,3 +60,16 @@ func delete_signal():
 func call_signal():
 	print("---Call signal!! Id obj: " + str(G.MeleeWeaponObject))
 	self.get_node("Area").connect("body_entered", G.MeleeWeaponObject, "_on_KnifeTarget_body_entered")
+
+func take_damage():
+	self.hp -= 1
+	print("+++++ take damage")
+	if self.hp == 0:
+		self.visual_destruct_object()
+	pass
+
+func visual_destruct_object():
+	pass
+	
+func delete_object():
+	pass

@@ -74,6 +74,7 @@ shape = SubResource( 61 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 33.881 )
 
 [node name="Rock" parent="world/Park" index="4"]
+transform = Transform( 4.86827, 0, 0, 0, 3.52226, 3.36062, 0, -3.36062, 3.52226, 0.00842094, 1.21852, 35.5477 )
 layers = 524288
 
 [node name="StandardPuppet" parent="world" instance=ExtResource( 1 )]
