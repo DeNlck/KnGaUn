@@ -71,6 +71,7 @@ func save_settings_to_file():
 func update_settings_dictionary(type):
 	for item in SettingsArea:
 		settings = BaseSettings.merge_dict(settings, SettingsArea[item].collect_child_properties(type))
+	print(settings)
 
 
 func save_settings(type = "actual"):

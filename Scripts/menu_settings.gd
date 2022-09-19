@@ -5,14 +5,19 @@ extends Control
 func collect_interface_values(): #сборщик значений с gui
 	Settings.SettingsArea["MusicSettings"].set_property("ChildMusicVolume", $"Panel/music_volume".value)
 	Settings.SettingsArea["MusicSettings"].set_property("ChildMusicEnable", $"Panel/music_on".pressed)
+	Settings.SettingsArea["DifficultySettings"].set_property("ChildDifficultyValue", $"Panel/music_difficult".value)
 
 	Settings.SettingsArea["MusicSettings"].apply()
+	Settings.SettingsArea["DifficultySettings"].apply()
 	
 	#задуматься о третьем ключе дочерней сущности настроек - temp, иначе это не dry, и нифига не масштабируемо
+	#либо о свойстве реализованном в родителе, указывающем путь до элемента gui с которым он будет всегда единым методом
+	#полиморфно взаимодействовать
 
-func set_interface_values(): #проставляет значения на gui
-	$"Panel/music_volume".value = Settings.SettingsArea["MusicSettings"].get_property("ChildMusicVolume")
-	$"Panel/music_on".pressed = Settings.SettingsArea["MusicSettings"].get_property("ChildMusicEnable")
+func set_interface_values(type = "actual"): #проставляет значения на gui
+	$"Panel/music_volume".value = Settings.SettingsArea["MusicSettings"].get_property("ChildMusicVolume", type)
+	$"Panel/music_on".pressed = Settings.SettingsArea["MusicSettings"].get_property("ChildMusicEnable", type)
+	$"Panel/music_difficult".value = Settings.SettingsArea["DifficultySettings"].get_property("ChildDifficultyValue", type)
 
 func _on_btn_save_pressed():
 	collect_interface_values()
@@ -32,7 +37,9 @@ func _on_btn_back_pressed():
 
 
 func _on_btn_default_pressed():
-	pass #нужно вызвать базовый метод который применит default настройки (модифицировать save_settings("default"))
+	Settings.update_settings_dictionary("default")
+	Settings.set_settings("default")
+	set_interface_values("default")
 
 
 func _on_music_volume_value_changed(value):

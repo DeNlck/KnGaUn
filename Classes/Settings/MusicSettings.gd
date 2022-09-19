@@ -2,7 +2,7 @@ extends "res://Classes/Settings/BaseSettings.gd"
 
 const LOWEST_MUSIC_LEVEL = -24
 
-var ChildMusicVolume = {"actual": 0, "default": -12}
+var ChildMusicVolume = {"actual": 0, "default": -23}
 var ChildMusicEnable = {"actual": true, "default": true} 
 
 
@@ -19,7 +19,9 @@ func set_volume_db(value):
 func set_playing(flag):
 	# чтобы музыка не начиналась сначала каждый раз, 
 	#в случае если она уже играет, а flag == true, трогать ее не будем
+	print(flag, " ",  Settings.bg_music.is_playing())
 	if not (flag and Settings.bg_music.is_playing()):
+		print("Включаем")
 		Settings.bg_music._set_playing(flag)
 	
 
