@@ -1,6 +1,7 @@
 class_name Cylinder extends KnifeTarget
 
-export var rotateVelocity = 0.4
+export var defaultRotateVelocity = 0.4
+var settingsRotateVelocity = self.defaultRotateVelocity
 
 onready var activeDestructCylinderTop = self.get_node("CylinderShape/DestructCylinderTop")
 onready var animationTree = self.activeDestructCylinderTop.get_node("AnimationTree")
@@ -18,7 +19,7 @@ func _ready():
 	pass
 
 func _process(delta):
-	transform.basis = Basis(Vector3(0, 1, 0), (rotateVelocity * delta)) * transform.basis
+	transform.basis = Basis(Vector3(0, 1, 0), (settingsRotateVelocity * delta)) * transform.basis
 	pass
 	
 func visual_destruct_object():
