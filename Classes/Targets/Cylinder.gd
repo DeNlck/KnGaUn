@@ -23,6 +23,7 @@ func _process(delta):
 	
 func visual_destruct_object():
 	self.animationTree.active = true
+	self.WeaponMeleeContainer.visible = false
 	pass
 
 func delete_object():

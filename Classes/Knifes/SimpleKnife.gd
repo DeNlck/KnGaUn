@@ -26,6 +26,7 @@ func animPlay_pull_out_knife():
 
 func throw_knife():
 	position_info = self.move_and_collide(throw_vector)
+	print("Name knife: " + str(self.get_path()))
 	if position_info:
 		print("Position_info: " + str(position_info.collider))
 		# Если последняя позиция ножа не равна вектору броска и столкнулся с любым киниматиком

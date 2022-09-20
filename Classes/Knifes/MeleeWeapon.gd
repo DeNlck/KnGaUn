@@ -1,8 +1,8 @@
 class_name MeleeWeapon extends KinematicBody
 
 var isTouchDisplay:bool = false
-onready var animationController = self.get_node("AnimationController")
-onready var rayCast = self.get_node("RayCast")
+onready var animationController = self.get_node("MeleeStuff/AnimationController")
+onready var rayCast = self.get_node("MeleeStuff/RayCast")
 var nextObject
 export var classPathScene:String
 var rayCastSuccess:bool = true
@@ -17,6 +17,8 @@ func _init():
 	print("***********************")
 
 func _ready():
+	print("anim control path: " + str(self.animationController))
+	print("raycast path: " + str(self.rayCast))
 	pass
 
 func _physics_process(delta):

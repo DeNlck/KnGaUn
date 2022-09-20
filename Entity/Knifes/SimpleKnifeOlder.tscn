@@ -29,7 +29,7 @@ surfaces/0 = {
 [sub_resource type="Animation" id=8]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("MeleeStuff:translation")
+tracks/0/path = NodePath(".:translation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -38,10 +38,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 0, 0, -0.915 ) ]
+"values": [ Vector3( -4.76837e-07, 0, -0.915027 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("MeleeStuff:rotation_degrees")
+tracks/1/path = NodePath(".:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -56,13 +56,37 @@ tracks/1/keys = {
 [sub_resource type="Animation" id=62]
 resource_name = "collide_to_knife"
 length = 0.3
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( -0.487286, 0.209587, -0.538579 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 90, 0 ), Vector3( 43.341, -78.4329, 141.667 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
 "times": PoolRealArray( 0.3 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -70,36 +94,12 @@ tracks/0/keys = {
 "method": "collide_same_object"
 } ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("MeleeStuff:translation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( -0.149088, 0.157983, -0.548135 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("MeleeStuff:rotation_degrees")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector3( 0, 90, 0 ), Vector3( -37.5337, -34.0444, 140.839 ) ]
-}
 
 [sub_resource type="Animation" id=60]
 resource_name = "pull_out_knife"
 length = 0.3
 tracks/0/type = "value"
-tracks/0/path = NodePath("MeleeStuff:translation")
+tracks/0/path = NodePath(".:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -108,10 +108,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 0, -0.915 ), Vector3( 0, 0, 0 ) ]
+"values": [ Vector3( 90, 0, 0 ), Vector3( 0, 90, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("MeleeStuff:rotation_degrees")
+tracks/1/path = NodePath(".:translation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -120,38 +120,38 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( -90, 180, 0 ), Vector3( 0, 90, 0 ) ]
+"values": [ Vector3( 0, -0.079, -0.341 ), Vector3( 0, 0, 0 ) ]
 }
 
-[node name="SimpleKnife" type="KinematicBody"]
-transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-visible = false
+[node name="SimpleKnife" type="Spatial"]
+
+[node name="Knife" type="KinematicBody" parent="."]
+transform = Transform( -4.37113e-08, 0, 1, 0, 1, 0, -0.999999, 0, -4.37114e-08, -4.76837e-07, 0, -0.915027 )
 script = ExtResource( 1 )
 classPathScene = "res://Entity/Knifes/SimpleKnife.tscn"
 
-[node name="MeleeStuff" type="CollisionShape" parent="."]
-transform = Transform( -2.50967e-08, 0, 0.0582729, 0, 0.123918, 0, -0.574145, 0, -2.54719e-09, 0, 0, -0.915 )
+[node name="Collision" type="CollisionShape" parent="Knife"]
+transform = Transform( 0.574144, 7.33416e-08, -3.25963e-09, -4.98258e-08, 0.123918, 2.79397e-09, 1.30385e-08, 3.72529e-09, 0.058273, 0.12146, -4.61936e-07, -3.57628e-07 )
 shape = SubResource( 7 )
 
-[node name="Area" type="Area" parent="MeleeStuff"]
+[node name="Area" type="Area" parent="Knife/Collision"]
 transform = Transform( 0.490259, -1.12211e-07, -3.74367e-08, 1.97127e-07, 0.878428, -3.17792e-08, 1.42458e-06, -5.61562e-08, 1.40947, 0.104683, 3.76985e-06, 6.11369e-06 )
 
-[node name="CollisionShape" type="CollisionShape" parent="MeleeStuff/Area"]
+[node name="CollisionShape" type="CollisionShape" parent="Knife/Collision/Area"]
 shape = SubResource( 61 )
 
-[node name="knifeMesh" type="MeshInstance" parent="MeleeStuff"]
-transform = Transform( 0.348345, -2.4482e-07, 5.17709e-07, -5.25986e-08, -1.62137, -4.12297e-14, 5.25986e-08, -1.74696e-14, -3.42863, -0.0684814, -0.0255814, 0.621396 )
+[node name="knifeMesh" type="MeshInstance" parent="Knife/Collision"]
+transform = Transform( 0.348345, -1.41745e-07, 2.9974e-07, -3.04532e-08, -1.62137, 0, 3.04533e-08, 7.10543e-15, -3.42863, -0.0684814, -0.0255814, 0.621396 )
 mesh = SubResource( 1 )
 skeleton = NodePath("")
 material/0 = ExtResource( 2 )
 
-[node name="AnimationController" type="AnimationPlayer" parent="MeleeStuff"]
-root_node = NodePath("../..")
+[node name="AnimationController" type="AnimationPlayer" parent="Knife"]
 anims/RESET = SubResource( 8 )
 anims/collide_to_knife = SubResource( 62 )
 anims/pull_out_knife = SubResource( 60 )
 
-[node name="RayCast" type="RayCast" parent="MeleeStuff"]
-transform = Transform( 1.74172, -1.03085e-06, 9.74272e-08, 7.00324e-07, 8.06985, -3.86919e-07, -3.89708e-07, -5.15891e-07, 17.1606, 0.00790739, 3.73093e-06, 6.13534e-06 )
+[node name="RayCast" type="RayCast" parent="Knife"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.126, 0, 0 )
 cast_to = Vector3( -0.135, 0, 0 )
 debug_shape_custom_color = Color( 0.8, 0.192157, 0.192157, 1 )
