@@ -7,9 +7,8 @@ var tag: String
 
 onready var WeaponMeleeContainer
 
-var test
-var posTest
-var rotateTest
+var attachPoint
+var resetRotate
 
 func _init():
 	G.KnifeTargetObject = self
@@ -25,16 +24,16 @@ func meleeWeapon_attach(object:MeleeWeapon, hit_point):
 	
 	print("I'm in meleWeapon attach")
 	print("Weapon onbject global rotation: " + str(object.rotation_degrees))
-	delete_signal()
-	rotateTest = object.global_transform.basis
+	self.delete_signal()
+	resetRotate = object.global_transform.basis
 	object.get_parent().remove_child(object)
 	self.WeaponMeleeContainer.add_child(object)
-	test = self.to_local(hit_point)
+	attachPoint = self.to_local(hit_point)
 #	self.get_node("WeaponMeleeContainer/" + object.name).translate(test)
-	object.translation.x = test.x
-	object.translation.y = test.y
-	object.translation.z = test.z
-	object.global_transform.basis = rotateTest
+	object.translation.x = attachPoint.x
+	object.translation.y = attachPoint.y
+	object.translation.z = attachPoint.z
+	object.global_transform.basis = resetRotate
 #	object.look_at(self.transform.origin, -Vector3.UP)
 #	object.rotation_degrees.y = object.rotation_degrees.abs().y
 #	object.rotation_degrees.z = object.rotation_degrees.abs().z
@@ -64,6 +63,7 @@ func call_signal():
 func take_damage():
 	self.hp -= 1
 	print("+++++ take damage")
+	
 	if self.hp == 0:
 		self.visual_destruct_object()
 	pass

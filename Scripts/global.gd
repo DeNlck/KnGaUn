@@ -9,6 +9,8 @@ var camera_in_gamezone = false
 var KnifeTargetObject
 var MeleeWeaponObject
 
+var isTargetActionFinished = true
+
 
 func _ready():
 	OS.center_window()

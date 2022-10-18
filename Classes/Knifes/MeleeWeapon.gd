@@ -33,7 +33,7 @@ func _physics_process(delta):
 	pass
 
 func _input(event):
-	if G.camera_in_gamezone and (event is InputEventMouseButton):
+	if (G.camera_in_gamezone and (event is InputEventMouseButton)) and G.isTargetActionFinished:
 		if (event.button_index == BUTTON_LEFT and event.is_pressed()):
 			self.isTouchDisplay = true
 			self.rayCast.enabled = true
