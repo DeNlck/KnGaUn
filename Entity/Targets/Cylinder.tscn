@@ -126,7 +126,7 @@ animation = "Cylinder_cell001Action"
 [sub_resource type="AnimationNodeTimeSeek" id=23]
 
 [sub_resource type="AnimationNodeBlendTree" id=17]
-graph_offset = Vector2( 342.611, 121.34 )
+graph_offset = Vector2( 641.936, 253.75 )
 nodes/Add2/node = SubResource( 20 )
 nodes/Add2/position = Vector2( 420, 360 )
 "nodes/Add2 2/node" = SubResource( 19 )
@@ -150,7 +150,7 @@ nodes/Seek/position = Vector2( 780, 340 )
 "nodes/Seek 2/node" = SubResource( 22 )
 "nodes/Seek 2/position" = Vector2( 760, 140 )
 nodes/output/position = Vector2( 1940, 200 )
-node_connections = [ "output", 0, "Add2 3", "Seek 2", 0, "Add2 2", "Add2", 0, "Animation 3", "Add2", 1, "Animation 4", "Add2 3", 0, "Blend2", "Add2 3", 1, "Animation 5", "Blend2", 0, "Seek 2", "Blend2", 1, "Seek", "Seek", 0, "Add2", "Add2 2", 0, "Animation", "Add2 2", 1, "Animation 2" ]
+node_connections = [ "output", 0, "Add2 3", "Add2", 0, "Animation 3", "Add2", 1, "Animation 4", "Add2 2", 0, "Animation", "Add2 2", 1, "Animation 2", "Blend2", 0, "Seek 2", "Blend2", 1, "Seek", "Add2 3", 0, "Blend2", "Add2 3", 1, "Animation 5", "Seek", 0, "Add2", "Seek 2", 0, "Add2 2" ]
 
 [sub_resource type="Animation" id=6]
 resource_name = "Cylinder_cell001Action"
@@ -200,27 +200,13 @@ tracks/0/keys = PoolRealArray( 0, 1, 0.714148, -0.00328277, -0.0784971, 0, 0, 0,
 resource_name = "delete_object"
 length = 0.5
 tracks/0/type = "method"
-tracks/0/path = NodePath(".")
+tracks/0/path = NodePath("../..")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
-tracks/0/enabled = false
+tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.5 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "queue_free"
-} ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath("../..")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.5 ),
+"times": PoolRealArray( 0.2 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -367,7 +353,7 @@ nodes/Seek/position = Vector2( 780, 340 )
 "nodes/Seek 2/node" = SubResource( 134 )
 "nodes/Seek 2/position" = Vector2( 760, 140 )
 nodes/output/position = Vector2( 1940, 200 )
-node_connections = [ "output", 0, "Add2 3", "Seek 2", 0, "Add2 2", "Add2", 0, "Animation 3", "Add2", 1, "Animation 4", "Add2 3", 0, "Blend2", "Add2 3", 1, "Animation 5", "Blend2", 0, "Seek 2", "Blend2", 1, "Seek", "Seek", 0, "Add2", "Add2 2", 0, "Animation", "Add2 2", 1, "Animation 2" ]
+node_connections = [ "output", 0, "Add2 3", "Add2", 0, "Animation 3", "Add2", 1, "Animation 4", "Add2 2", 0, "Animation", "Add2 2", 1, "Animation 2", "Blend2", 0, "Seek 2", "Blend2", 1, "Seek", "Add2 3", 0, "Blend2", "Add2 3", 1, "Animation 5", "Seek", 0, "Add2", "Seek 2", 0, "Add2 2" ]
 
 [sub_resource type="Animation" id=91]
 resource_name = "Cylinder_cell001Action"
@@ -417,27 +403,13 @@ tracks/0/keys = PoolRealArray( 0, 1, 0.714148, -0.00328277, -0.0784971, 0, 0, 0,
 resource_name = "delete_object"
 length = 0.5
 tracks/0/type = "method"
-tracks/0/path = NodePath(".")
+tracks/0/path = NodePath("../..")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
-tracks/0/enabled = false
+tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.5 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "queue_free"
-} ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath("../..")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.5 ),
+"times": PoolRealArray( 0.2 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -493,27 +465,13 @@ tracks/0/keys = PoolRealArray( 0, 1, 0.714148, -0.00328277, -0.0784971, 0, 0, 0,
 resource_name = "delete_object"
 length = 0.5
 tracks/0/type = "method"
-tracks/0/path = NodePath(".")
+tracks/0/path = NodePath("../..")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
-tracks/0/enabled = false
+tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.5 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "queue_free"
-} ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath("../..")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.5 ),
+"times": PoolRealArray( 0.2 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -569,27 +527,13 @@ tracks/0/keys = PoolRealArray( 0, 1, 0.714148, -0.00328277, -0.0784971, 0, 0, 0,
 resource_name = "delete_object"
 length = 0.5
 tracks/0/type = "method"
-tracks/0/path = NodePath(".")
+tracks/0/path = NodePath("../..")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
-tracks/0/enabled = false
+tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.5 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "queue_free"
-} ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath("../..")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.5 ),
+"times": PoolRealArray( 0.2 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -645,27 +589,13 @@ tracks/0/keys = PoolRealArray( 0, 1, 0.714148, -0.00328277, -0.0784971, 0, 0, 0,
 resource_name = "delete_object"
 length = 0.5
 tracks/0/type = "method"
-tracks/0/path = NodePath(".")
+tracks/0/path = NodePath("../..")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
-tracks/0/enabled = false
+tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.5 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "queue_free"
-} ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath("../..")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.5 ),
+"times": PoolRealArray( 0.2 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -721,27 +651,13 @@ tracks/0/keys = PoolRealArray( 0, 1, 0.714148, -0.00328277, -0.0784971, 0, 0, 0,
 resource_name = "delete_object"
 length = 0.5
 tracks/0/type = "method"
-tracks/0/path = NodePath(".")
+tracks/0/path = NodePath("../..")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
-tracks/0/enabled = false
+tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.5 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "queue_free"
-} ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath("../..")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.5 ),
+"times": PoolRealArray( 0.2 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],

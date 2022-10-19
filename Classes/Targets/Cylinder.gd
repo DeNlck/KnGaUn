@@ -45,9 +45,9 @@ func move_up_each_object(delta):
 #	timelerped += delta
 	for i in range(test_array.size()):
 		
-		test_array[i].get_node("Spatial").transform.origin.y = lerp(test_array[i].get_node("Spatial").transform.origin.y, self.cylinderArray[i], 0.9)
+		test_array[i].get_node("Spatial").transform.origin.y = lerp(test_array[i].get_node("Spatial").transform.origin.y, self.cylinderArray[i], 0.25)
 #		test_array[i].get_node("Spatial").transform.origin.y = linear_interpolate(self.cylinderArray[i],0.25)
-
+	
 	if is_equal_approx(test_array[0].get_node("Spatial").transform.origin.y, self.cylinderTopPiece):
 		moveAllPieces = false
 		print("All pieces moved!!!")

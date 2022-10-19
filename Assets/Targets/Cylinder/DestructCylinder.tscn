@@ -141,7 +141,7 @@ nodes/Seek/position = Vector2( 780, 340 )
 "nodes/Seek 2/node" = SubResource( 22 )
 "nodes/Seek 2/position" = Vector2( 760, 140 )
 nodes/output/position = Vector2( 1940, 200 )
-node_connections = [ "output", 0, "Add2 3", "Add2 2", 0, "Animation", "Add2 2", 1, "Animation 2", "Blend2", 0, "Seek 2", "Blend2", 1, "Seek", "Seek", 0, "Add2", "Add2", 0, "Animation 3", "Add2", 1, "Animation 4", "Add2 3", 0, "Blend2", "Add2 3", 1, "Animation 5", "Seek 2", 0, "Add2 2" ]
+node_connections = [ "output", 0, "Add2 3", "Add2", 0, "Animation 3", "Add2", 1, "Animation 4", "Add2 2", 0, "Animation", "Add2 2", 1, "Animation 2", "Blend2", 0, "Seek 2", "Blend2", 1, "Seek", "Add2 3", 0, "Blend2", "Add2 3", 1, "Animation 5", "Seek", 0, "Add2", "Seek 2", 0, "Add2 2" ]
 
 [sub_resource type="Animation" id=91]
 resource_name = "Cylinder_cell001Action"
