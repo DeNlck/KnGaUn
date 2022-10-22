@@ -150,7 +150,7 @@ nodes/Seek/position = Vector2( 780, 340 )
 "nodes/Seek 2/node" = SubResource( 22 )
 "nodes/Seek 2/position" = Vector2( 760, 140 )
 nodes/output/position = Vector2( 1940, 200 )
-node_connections = [ "output", 0, "Add2 3", "Add2", 0, "Animation 3", "Add2", 1, "Animation 4", "Add2 2", 0, "Animation", "Add2 2", 1, "Animation 2", "Blend2", 0, "Seek 2", "Blend2", 1, "Seek", "Add2 3", 0, "Blend2", "Add2 3", 1, "Animation 5", "Seek", 0, "Add2", "Seek 2", 0, "Add2 2" ]
+node_connections = [ "output", 0, "Add2 3", "Seek", 0, "Add2", "Add2 3", 0, "Blend2", "Add2 3", 1, "Animation 5", "Add2", 0, "Animation 3", "Add2", 1, "Animation 4", "Seek 2", 0, "Add2 2", "Add2 2", 0, "Animation", "Add2 2", 1, "Animation 2", "Blend2", 0, "Seek 2", "Blend2", 1, "Seek" ]
 
 [sub_resource type="Animation" id=6]
 resource_name = "Cylinder_cell001Action"
@@ -200,7 +200,7 @@ tracks/0/keys = PoolRealArray( 0, 1, 0.714148, -0.00328277, -0.0784971, 0, 0, 0,
 resource_name = "delete_object"
 length = 0.5
 tracks/0/type = "method"
-tracks/0/path = NodePath("../..")
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -353,7 +353,7 @@ nodes/Seek/position = Vector2( 780, 340 )
 "nodes/Seek 2/node" = SubResource( 134 )
 "nodes/Seek 2/position" = Vector2( 760, 140 )
 nodes/output/position = Vector2( 1940, 200 )
-node_connections = [ "output", 0, "Add2 3", "Add2", 0, "Animation 3", "Add2", 1, "Animation 4", "Add2 2", 0, "Animation", "Add2 2", 1, "Animation 2", "Blend2", 0, "Seek 2", "Blend2", 1, "Seek", "Add2 3", 0, "Blend2", "Add2 3", 1, "Animation 5", "Seek", 0, "Add2", "Seek 2", 0, "Add2 2" ]
+node_connections = [ "output", 0, "Add2 3", "Seek", 0, "Add2", "Add2 3", 0, "Blend2", "Add2 3", 1, "Animation 5", "Add2", 0, "Animation 3", "Add2", 1, "Animation 4", "Seek 2", 0, "Add2 2", "Add2 2", 0, "Animation", "Add2 2", 1, "Animation 2", "Blend2", 0, "Seek 2", "Blend2", 1, "Seek" ]
 
 [sub_resource type="Animation" id=91]
 resource_name = "Cylinder_cell001Action"
@@ -403,7 +403,7 @@ tracks/0/keys = PoolRealArray( 0, 1, 0.714148, -0.00328277, -0.0784971, 0, 0, 0,
 resource_name = "delete_object"
 length = 0.5
 tracks/0/type = "method"
-tracks/0/path = NodePath("../..")
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -465,7 +465,7 @@ tracks/0/keys = PoolRealArray( 0, 1, 0.714148, -0.00328277, -0.0784971, 0, 0, 0,
 resource_name = "delete_object"
 length = 0.5
 tracks/0/type = "method"
-tracks/0/path = NodePath("../..")
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -527,7 +527,7 @@ tracks/0/keys = PoolRealArray( 0, 1, 0.714148, -0.00328277, -0.0784971, 0, 0, 0,
 resource_name = "delete_object"
 length = 0.5
 tracks/0/type = "method"
-tracks/0/path = NodePath("../..")
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -589,7 +589,7 @@ tracks/0/keys = PoolRealArray( 0, 1, 0.714148, -0.00328277, -0.0784971, 0, 0, 0,
 resource_name = "delete_object"
 length = 0.5
 tracks/0/type = "method"
-tracks/0/path = NodePath("../..")
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -651,7 +651,7 @@ tracks/0/keys = PoolRealArray( 0, 1, 0.714148, -0.00328277, -0.0784971, 0, 0, 0,
 resource_name = "delete_object"
 length = 0.5
 tracks/0/type = "method"
-tracks/0/path = NodePath("../..")
+tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -670,6 +670,7 @@ mode = 1
 contacts_reported = 1
 contact_monitor = true
 script = ExtResource( 1 )
+classPathPieceCylinder = "res://Assets/Targets/Cylinder/DestructCylinder.tscn"
 
 [node name="Area" type="Area" parent="."]
 
@@ -680,7 +681,8 @@ shape = SubResource( 59 )
 transform = Transform( 1, 0, 0, 0, 1, 3.55271e-15, 0, -1.06581e-14, 1, 0, 0, 0 )
 shape = SubResource( 49 )
 
-[node name="DestructCylinderTop" type="Spatial" parent="CylinderShape" groups=["cylinder_piece"]]
+[node name="DestructCylinderTop" type="RigidBody" parent="CylinderShape" groups=["cylinder_piece"]]
+mode = 1
 
 [node name="Spatial" type="Spatial" parent="CylinderShape/DestructCylinderTop"]
 transform = Transform( 0.199, 0, 0, 0, 0.199, 0, 0, 0, 0.199, 0, 0.146, 0 )
@@ -737,7 +739,8 @@ blend_times = [ "Cylinder_cell001Action", "Cylinder_cell001Action", 0.1, "Cylind
 
 [node name="WeaponMeleeContainer" type="Spatial" parent="CylinderShape/DestructCylinderTop"]
 
-[node name="DestructCylinder1" type="Spatial" parent="CylinderShape" groups=["cylinder_piece"]]
+[node name="DestructCylinder1" type="RigidBody" parent="CylinderShape" groups=["cylinder_piece"]]
+mode = 1
 
 [node name="Spatial" type="Spatial" parent="CylinderShape/DestructCylinder1"]
 transform = Transform( 0.0712244, -1.98046e-15, 0.185817, 6.60155e-16, 0.199, 4.5395e-16, -0.185817, 1.36184e-15, 0.0712244, 0, 0.0875064, -6.23431e-16 )
@@ -794,7 +797,8 @@ blend_times = [ "Cylinder_cell001Action", "Cylinder_cell001Action", 0.1, "Cylind
 
 [node name="WeaponMeleeContainer" type="Spatial" parent="CylinderShape/DestructCylinder1"]
 
-[node name="DestructCylinder2" type="Spatial" parent="CylinderShape" groups=["cylinder_piece"]]
+[node name="DestructCylinder2" type="RigidBody" parent="CylinderShape" groups=["cylinder_piece"]]
+mode = 1
 
 [node name="Spatial" type="Spatial" parent="CylinderShape/DestructCylinder2"]
 transform = Transform( -0.028084, 2.09973e-15, -0.197008, -6.99914e-16, 0.199, 8.06764e-16, 0.197008, 2.42028e-15, -0.028084, 0, 0.0290369, -1.2466e-15 )
@@ -851,7 +855,8 @@ blend_times = [ "Cylinder_cell001Action", "Cylinder_cell001Action", 0.1, "Cylind
 
 [node name="WeaponMeleeContainer" type="Spatial" parent="CylinderShape/DestructCylinder2"]
 
-[node name="DestructCylinder3" type="Spatial" parent="CylinderShape" groups=["cylinder_piece"]]
+[node name="DestructCylinder3" type="RigidBody" parent="CylinderShape" groups=["cylinder_piece"]]
+mode = 1
 
 [node name="Spatial" type="Spatial" parent="CylinderShape/DestructCylinder3"]
 transform = Transform( -0.182855, -8.36863e-16, 0.0785189, 2.78955e-16, 0.199, 1.35662e-15, -0.0785189, 4.06984e-15, -0.182855, 0, -0.0291808, -1.86709e-15 )
@@ -908,7 +913,8 @@ blend_times = [ "Cylinder_cell001Action", "Cylinder_cell001Action", 0.1, "Cylind
 
 [node name="WeaponMeleeContainer" type="Spatial" parent="CylinderShape/DestructCylinder3"]
 
-[node name="DestructCylinder4" type="Spatial" parent="CylinderShape" groups=["cylinder_piece"]]
+[node name="DestructCylinder4" type="RigidBody" parent="CylinderShape" groups=["cylinder_piece"]]
+mode = 1
 
 [node name="Spatial" type="Spatial" parent="CylinderShape/DestructCylinder4"]
 transform = Transform( 0.148099, -1.41667e-15, 0.132919, 4.72224e-16, 0.199, 1.80835e-16, -0.132919, 5.42503e-16, 0.148099, 0, -0.0878478, -2.49237e-15 )
@@ -965,7 +971,8 @@ blend_times = [ "Cylinder_cell001Action", "Cylinder_cell001Action", 0.1, "Cylind
 
 [node name="WeaponMeleeContainer" type="Spatial" parent="CylinderShape/DestructCylinder4"]
 
-[node name="DestructCylinder5" type="Spatial" parent="CylinderShape" groups=["cylinder_piece"]]
+[node name="DestructCylinder5" type="RigidBody" parent="CylinderShape" groups=["cylinder_piece"]]
+mode = 1
 
 [node name="Spatial" type="Spatial" parent="CylinderShape/DestructCylinder5"]
 transform = Transform( -0.110252, 1.76569e-15, -0.165667, -5.88566e-16, 0.199, 1.09868e-15, 0.165667, 3.29604e-15, -0.110252, 0, -0.146327, -3.11566e-15 )

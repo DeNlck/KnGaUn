@@ -1,6 +1,7 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Assets/Targets/Cylinder/test.png" type="Texture" id=1]
+[ext_resource path="res://Classes/Targets/CylinderPiece.gd" type="Script" id=2]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "my_destruct_Cylinder"
@@ -141,7 +142,7 @@ nodes/Seek/position = Vector2( 780, 340 )
 "nodes/Seek 2/node" = SubResource( 22 )
 "nodes/Seek 2/position" = Vector2( 760, 140 )
 nodes/output/position = Vector2( 1940, 200 )
-node_connections = [ "output", 0, "Add2 3", "Add2", 0, "Animation 3", "Add2", 1, "Animation 4", "Add2 2", 0, "Animation", "Add2 2", 1, "Animation 2", "Blend2", 0, "Seek 2", "Blend2", 1, "Seek", "Add2 3", 0, "Blend2", "Add2 3", 1, "Animation 5", "Seek", 0, "Add2", "Seek 2", 0, "Add2 2" ]
+node_connections = [ "output", 0, "Add2 3", "Seek", 0, "Add2", "Add2 3", 0, "Blend2", "Add2 3", 1, "Animation 5", "Add2", 0, "Animation 3", "Add2", 1, "Animation 4", "Seek 2", 0, "Add2 2", "Add2 2", 0, "Animation", "Add2 2", 1, "Animation 2", "Blend2", 0, "Seek 2", "Blend2", 1, "Seek" ]
 
 [sub_resource type="Animation" id=91]
 resource_name = "Cylinder_cell001Action"
@@ -197,15 +198,17 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.5 ),
+"times": PoolRealArray( 0.2 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
-"method": "queue_free"
+"method": "delete_object"
 } ]
 }
 
-[node name="DestructCylinder" type="Spatial"]
+[node name="DestructCylinder" type="RigidBody" groups=["cylinder_piece"]]
+mode = 1
+script = ExtResource( 2 )
 
 [node name="Spatial" type="Spatial" parent="."]
 transform = Transform( 0.0712244, -1.98046e-15, 0.185817, 6.60155e-16, 0.199, 4.5395e-16, -0.185817, 1.36184e-15, 0.0712244, 0, 0.0875064, -6.23431e-16 )

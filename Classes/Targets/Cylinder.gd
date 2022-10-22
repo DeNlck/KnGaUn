@@ -3,8 +3,14 @@ class_name Cylinder extends KnifeTarget
 export var defaultRotateVelocity = 0.4
 var settingsRotateVelocity = self.defaultRotateVelocity
 
+var pieceCylinderObject
+export var classPathPieceCylinder:String
+
 onready var activeDestructCylinderTop = self.get_node("CylinderShape/DestructCylinderTop")
 onready var animationTree = self.activeDestructCylinderTop.get_node("AnimationTree")
+
+var startPositionPieceCylinder
+var startRotationPieceCylinder
 
 onready var cylinderGroup = self.get_tree().get_nodes_in_group("cylinder_piece")
 onready var cylinderTopPiece = cylinderGroup[0].get_node("Spatial").transform.origin.y
@@ -13,7 +19,6 @@ onready var cylinderStepSize = cylinderTopPiece - cylinderGroup[1].get_node("Spa
 
 var cylinderArray = {}
 var moveAllPieces = false
-var timelerped
 
 
 func _init():
@@ -25,12 +30,26 @@ func _ready():
 #	print("Contact monitor: " + str(self.is_contact_monitor_enabled()))
 #	print("Max contacts reported: " + str(get_max_contacts_reported()))
 #	print("***********************")
+
 	self.WeaponMeleeContainer = self.activeDestructCylinderTop.get_node("WeaponMeleeContainer")
 	
 #	print("Top Piece: " + str(cylinderTopPiece) + " Last Piece: " + str(cylinderLastPiece) + " Step Size: " + str(cylinderStepSize))
-#	Сохраняем изначальные позиции "y" от каждой части цилиндра. Потом на эти значения передвигаем нижние части
-	for i in range(self.cylinderGroup.size()):
+
+	for i in range(6):
+		#	Сохраняем изначальные позиции "y" от каждой части цилиндра. Потом на эти значения передвигаем нижние части
 		self.cylinderArray[i] = self.cylinderGroup[i].get_node("Spatial").transform.origin.y
+		#Сохраняем стартовые позиции (которые стоят на данный момент в сцене заранее, вне игры) части цилиндра
+		var startPositionPieceCylinder = self.cylinderGroup[i].transform.origin
+		var startRotationPieceCylinder = self.cylinderGroup[i].global_transform.basis
+		
+		self.pieceCylinderObject = load(self.classPathPieceCylinder).instance()
+		self.get_node("CylinderShape").add_child(self.pieceCylinderObject)
+		self.name = self.cylinderGroup[i].name
+		self.pieceCylinderObject.translate(self.startPositionPieceCylinder)
+		self.pieceCylinderObject.global_transform.basis = self.startRotationPieceCylinder
+		
+		# Удаляем объект, который был поставлен на сцене, так как на его место инстанцировали дочерний объект
+		self.cylinderGroup[i].queue_free()
 	pass
 
 func _process(delta):
@@ -42,7 +61,6 @@ func _process(delta):
 
 func move_up_each_object(delta):
 	var test_array = self.get_tree().get_nodes_in_group("cylinder_piece")
-#	timelerped += delta
 	for i in range(test_array.size()):
 		
 		test_array[i].get_node("Spatial").transform.origin.y = lerp(test_array[i].get_node("Spatial").transform.origin.y, self.cylinderArray[i], 0.25)
@@ -64,10 +82,4 @@ func visual_destruct_object():
 	G.isTargetActionFinished = false
 	self.animationTree.active = true
 	self.WeaponMeleeContainer.visible = false
-	pass
-
-func delete_object():
-	self.activeDestructCylinderTop.queue_free()
-	self.activeDestructCylinderTop.remove_from_group("cylinder_piece")
-	self.moveAllPieces = true
 	pass
