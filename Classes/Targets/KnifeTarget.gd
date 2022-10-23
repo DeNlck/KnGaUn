@@ -14,6 +14,7 @@ func _init():
 	G.KnifeTargetObject = self
 
 func _ready():
+	print(self.get_instance_id())
 	# Ивент на столкновение объектов класса MeleeWeapon с любой целью этого класса
 	print("Area info: " + str(self.get_node("Area")))
 	self.call_signal()

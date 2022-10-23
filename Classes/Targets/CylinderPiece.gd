@@ -1,6 +1,6 @@
 class_name CylinderPiece extends Cylinder
 
-func _init():
+func _init(test):
 	print("~~~~~~~~~CylinderPiece init")
 	pass
 

@@ -3,14 +3,12 @@ class_name Cylinder extends KnifeTarget
 export var defaultRotateVelocity = 0.4
 var settingsRotateVelocity = self.defaultRotateVelocity
 
-var pieceCylinderObject
-export var classPathPieceCylinder:String
-
-onready var activeDestructCylinderTop = self.get_node("CylinderShape/DestructCylinderTop")
-onready var animationTree = self.activeDestructCylinderTop.get_node("AnimationTree")
-
-var startPositionPieceCylinder
-var startRotationPieceCylinder
+var activeDestructCylinderTop
+var animationTree
+var animationPlayer
+var animation
+var track_index
+var animDeleteObject
 
 onready var cylinderGroup = self.get_tree().get_nodes_in_group("cylinder_piece")
 onready var cylinderTopPiece = cylinderGroup[0].get_node("Spatial").transform.origin.y
@@ -19,7 +17,6 @@ onready var cylinderStepSize = cylinderTopPiece - cylinderGroup[1].get_node("Spa
 
 var cylinderArray = {}
 var moveAllPieces = false
-
 
 func _init():
 	pass
@@ -30,8 +27,11 @@ func _ready():
 #	print("Contact monitor: " + str(self.is_contact_monitor_enabled()))
 #	print("Max contacts reported: " + str(get_max_contacts_reported()))
 #	print("***********************")
-
+	self.activeDestructCylinderTop = self.get_node("CylinderShape/DestructCylinderTop")
 	self.WeaponMeleeContainer = self.activeDestructCylinderTop.get_node("WeaponMeleeContainer")
+	self.animationTree = self.activeDestructCylinderTop.get_node("AnimationTree")
+	self.animationPlayer = self.activeDestructCylinderTop.get_node("AnimationPlayer")
+	self.animDeleteObject = self.animationPlayer.get_animation("delete_object")
 	
 #	print("Top Piece: " + str(cylinderTopPiece) + " Last Piece: " + str(cylinderLastPiece) + " Step Size: " + str(cylinderStepSize))
 
@@ -39,17 +39,18 @@ func _ready():
 		#	Сохраняем изначальные позиции "y" от каждой части цилиндра. Потом на эти значения передвигаем нижние части
 		self.cylinderArray[i] = self.cylinderGroup[i].get_node("Spatial").transform.origin.y
 		#Сохраняем стартовые позиции (которые стоят на данный момент в сцене заранее, вне игры) части цилиндра
-		var startPositionPieceCylinder = self.cylinderGroup[i].transform.origin
-		var startRotationPieceCylinder = self.cylinderGroup[i].global_transform.basis
+#		startPositionPieceCylinder = self.cylinderGroup[i].transform.origin
+#		startRotationPieceCylinder = self.cylinderGroup[i].global_transform.basis
 		
-		self.pieceCylinderObject = load(self.classPathPieceCylinder).instance()
-		self.get_node("CylinderShape").add_child(self.pieceCylinderObject)
-		self.name = self.cylinderGroup[i].name
-		self.pieceCylinderObject.translate(self.startPositionPieceCylinder)
-		self.pieceCylinderObject.global_transform.basis = self.startRotationPieceCylinder
-		
-		# Удаляем объект, который был поставлен на сцене, так как на его место инстанцировали дочерний объект
-		self.cylinderGroup[i].queue_free()
+
+#		self.pieceCylinderObject = load(self.classPathPieceCylinder).instance()
+#		self.get_node("CylinderShape").add_child(self.pieceCylinderObject)
+#		self.name = self.cylinderGroup[i].name
+#		self.pieceCylinderObject.translate(self.startPositionPieceCylinder)
+#		self.pieceCylinderObject.global_transform.basis = self.startRotationPieceCylinder
+#
+#		# Удаляем объект, который был поставлен на сцене, так как на его место инстанцировали дочерний объект
+#		self.cylinderGroup[i].queue_free()
 	pass
 
 func _process(delta):
@@ -80,6 +81,24 @@ func move_up_each_object(delta):
 
 func visual_destruct_object():
 	G.isTargetActionFinished = false
+	
+	self.animation = Animation.new()
+	self.track_index = self.animDeleteObject.add_track(Animation.TYPE_METHOD)
+	self.animation.track_set_path(self.track_index, "CylinderPhys")
+	print("~~~~~~" + str(self.animation.find_track(self.get_path())))
+	self.animation.track_insert_key(self.track_index, 0.2, {"method" : "delete_object" , "args" : []})
+	
 	self.animationTree.active = true
 	self.WeaponMeleeContainer.visible = false
+	pass
+	
+func delete_object():
+	print("~~~~~~~~~~~~~ method delete_object was called!!!")
+	self.remove_from_group("cylinder_piece")
+	self.queue_free()
+	self.moveAllPieces = true
+	pass
+
+func int_propery():
+	
 	pass
