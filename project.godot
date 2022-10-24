@@ -14,11 +14,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Classes/Targets/Cylinder.gd"
 }, {
-"base": "Cylinder",
-"class": "CylinderPiece",
-"language": "GDScript",
-"path": "res://Classes/Targets/CylinderPiece.gd"
-}, {
 "base": "RigidBody",
 "class": "KnifeTarget",
 "language": "GDScript",
@@ -36,7 +31,6 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Cylinder": "",
-"CylinderPiece": "",
 "KnifeTarget": "",
 "MeleeWeapon": "",
 "SimpleKnife": ""

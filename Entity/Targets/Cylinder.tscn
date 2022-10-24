@@ -126,7 +126,7 @@ animation = "Cylinder_cell001Action"
 [sub_resource type="AnimationNodeTimeSeek" id=23]
 
 [sub_resource type="AnimationNodeBlendTree" id=17]
-graph_offset = Vector2( 641.936, 253.75 )
+graph_offset = Vector2( 642.699, 327.172 )
 nodes/Add2/node = SubResource( 20 )
 nodes/Add2/position = Vector2( 420, 360 )
 "nodes/Add2 2/node" = SubResource( 19 )
@@ -150,7 +150,7 @@ nodes/Seek/position = Vector2( 780, 340 )
 "nodes/Seek 2/node" = SubResource( 22 )
 "nodes/Seek 2/position" = Vector2( 760, 140 )
 nodes/output/position = Vector2( 1940, 200 )
-node_connections = [ "output", 0, "Add2 3", "Add2", 0, "Animation 3", "Add2", 1, "Animation 4", "Add2 2", 0, "Animation", "Add2 2", 1, "Animation 2", "Add2 3", 0, "Blend2", "Add2 3", 1, "Animation 5", "Blend2", 0, "Seek 2", "Blend2", 1, "Seek", "Seek", 0, "Add2", "Seek 2", 0, "Add2 2" ]
+node_connections = [ "output", 0, "Add2 3", "Add2 2", 0, "Animation", "Add2 2", 1, "Animation 2", "Add2", 0, "Animation 3", "Add2", 1, "Animation 4", "Blend2", 0, "Seek 2", "Blend2", 1, "Seek", "Seek", 0, "Add2", "Add2 3", 0, "Blend2", "Add2 3", 1, "Animation 5", "Seek 2", 0, "Add2 2" ]
 
 [sub_resource type="Animation" id=6]
 resource_name = "Cylinder_cell001Action"
@@ -199,17 +199,6 @@ tracks/0/keys = PoolRealArray( 0, 1, 0.714148, -0.00328277, -0.0784971, 0, 0, 0,
 [sub_resource type="Animation" id=88]
 resource_name = "delete_object"
 length = 0.5
-tracks/0/type = "method"
-tracks/0/path = NodePath("../..")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
-"values": [  ]
-}
 
 [sub_resource type="ArrayMesh" id=116]
 resource_name = "my_destruct_Cylinder"
@@ -350,7 +339,7 @@ nodes/Seek/position = Vector2( 780, 340 )
 "nodes/Seek 2/node" = SubResource( 134 )
 "nodes/Seek 2/position" = Vector2( 760, 140 )
 nodes/output/position = Vector2( 1940, 200 )
-node_connections = [ "output", 0, "Add2 3", "Add2", 0, "Animation 3", "Add2", 1, "Animation 4", "Add2 2", 0, "Animation", "Add2 2", 1, "Animation 2", "Add2 3", 0, "Blend2", "Add2 3", 1, "Animation 5", "Blend2", 0, "Seek 2", "Blend2", 1, "Seek", "Seek", 0, "Add2", "Seek 2", 0, "Add2 2" ]
+node_connections = [ "output", 0, "Add2 3", "Add2 2", 0, "Animation", "Add2 2", 1, "Animation 2", "Add2", 0, "Animation 3", "Add2", 1, "Animation 4", "Blend2", 0, "Seek 2", "Blend2", 1, "Seek", "Seek", 0, "Add2", "Add2 3", 0, "Blend2", "Add2 3", 1, "Animation 5", "Seek 2", 0, "Add2 2" ]
 
 [sub_resource type="Animation" id=91]
 resource_name = "Cylinder_cell001Action"
@@ -399,20 +388,6 @@ tracks/0/keys = PoolRealArray( 0, 1, 0.714148, -0.00328277, -0.0784971, 0, 0, 0,
 [sub_resource type="Animation" id=95]
 resource_name = "delete_object"
 length = 0.5
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.2 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "delete_object"
-} ]
-}
 
 [sub_resource type="Animation" id=96]
 resource_name = "Cylinder_cell001Action"
@@ -461,20 +436,6 @@ tracks/0/keys = PoolRealArray( 0, 1, 0.714148, -0.00328277, -0.0784971, 0, 0, 0,
 [sub_resource type="Animation" id=100]
 resource_name = "delete_object"
 length = 0.5
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.2 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "delete_object"
-} ]
-}
 
 [sub_resource type="Animation" id=101]
 resource_name = "Cylinder_cell001Action"
@@ -523,20 +484,6 @@ tracks/0/keys = PoolRealArray( 0, 1, 0.714148, -0.00328277, -0.0784971, 0, 0, 0,
 [sub_resource type="Animation" id=105]
 resource_name = "delete_object"
 length = 0.5
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.2 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "delete_object"
-} ]
-}
 
 [sub_resource type="Animation" id=106]
 resource_name = "Cylinder_cell001Action"
@@ -585,20 +532,6 @@ tracks/0/keys = PoolRealArray( 0, 1, 0.714148, -0.00328277, -0.0784971, 0, 0, 0,
 [sub_resource type="Animation" id=110]
 resource_name = "delete_object"
 length = 0.5
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.2 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "delete_object"
-} ]
-}
 
 [sub_resource type="Animation" id=111]
 resource_name = "Cylinder_cell001Action"
@@ -647,20 +580,6 @@ tracks/0/keys = PoolRealArray( 0, 1, 0.714148, -0.00328277, -0.0784971, 0, 0, 0,
 [sub_resource type="Animation" id=115]
 resource_name = "delete_object"
 length = 0.5
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.2 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "delete_object"
-} ]
-}
 
 [node name="CylinderPhys" type="RigidBody"]
 mode = 1
