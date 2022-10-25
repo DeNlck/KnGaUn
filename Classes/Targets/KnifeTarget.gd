@@ -72,5 +72,5 @@ func take_damage():
 func visual_destruct_object():
 	pass
 	
-func delete_object(object):
+func delete_object():
 	pass

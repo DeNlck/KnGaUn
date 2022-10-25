@@ -141,9 +141,9 @@ nodes/Seek/position = Vector2( 780, 340 )
 "nodes/Seek 2/node" = SubResource( 22 )
 "nodes/Seek 2/position" = Vector2( 760, 140 )
 nodes/output/position = Vector2( 1940, 200 )
-node_connections = [ "output", 0, "Add2 3", "Add2 2", 0, "Animation", "Add2 2", 1, "Animation 2", "Add2", 0, "Animation 3", "Add2", 1, "Animation 4", "Blend2", 0, "Seek 2", "Blend2", 1, "Seek", "Seek", 0, "Add2", "Add2 3", 0, "Blend2", "Add2 3", 1, "Animation 5", "Seek 2", 0, "Add2 2" ]
+node_connections = [ "output", 0, "Add2 3", "Seek 2", 0, "Add2 2", "Add2 3", 0, "Blend2", "Add2 3", 1, "Animation 5", "Add2", 0, "Animation 3", "Add2", 1, "Animation 4", "Blend2", 0, "Seek 2", "Blend2", 1, "Seek", "Add2 2", 0, "Animation", "Add2 2", 1, "Animation 2", "Seek", 0, "Add2" ]
 
-[sub_resource type="Animation" id=91]
+[sub_resource type="Animation" id=6]
 resource_name = "Cylinder_cell001Action"
 length = 0.5
 tracks/0/type = "transform"
@@ -154,7 +154,7 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = PoolRealArray( 0, 1, 0.437692, -0.00385374, 0.635641, 0, 0, 0, 1, 1, 1, 1, 0.1, 1, 0.465412, -0.00385374, 1.26778, -0.161247, 0.0352817, -0.210186, 0.963627, 1, 1, 1, 0.479065, 1, 0.882, -1.092, 2.173, -0.365523, 0.244695, -0.499578, 0.746284, 1, 1, 1 )
 
-[sub_resource type="Animation" id=92]
+[sub_resource type="Animation" id=7]
 resource_name = "Cylinder_cell002Action"
 length = 0.5
 tracks/0/type = "transform"
@@ -165,7 +165,7 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = PoolRealArray( 0, 1, -0.425237, 0, -0.522075, 0, 0, 0, 1, 1, 1, 1, 0.1, 1, -0.598215, 0, -1.0694, -0.36232, -0.00109696, 0.100376, 0.926632, 1, 1, 1, 0.487437, 1, -0.364, -1.434, -3.044, -0.899606, -0.282515, 0.195234, 0.269773, 1, 1, 1 )
 
-[sub_resource type="Animation" id=93]
+[sub_resource type="Animation" id=8]
 resource_name = "Cylinder_cell003Action"
 length = 0.5
 tracks/0/type = "transform"
@@ -176,7 +176,7 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = PoolRealArray( 0, 1, -0.397996, 0, 0.611557, 0, 0, 0, 1, 1, 1, 1, 0.1, 1, -0.825639, 0, 0.912495, 0.195821, 0.17211, -0.0881175, 0.961388, 1, 1, 1, 0.5, 1, -1.902, -1.152, 1.67, 0.443372, 0.351139, -0.512013, 0.646502, 1, 1, 1 )
 
-[sub_resource type="Animation" id=94]
+[sub_resource type="Animation" id=9]
 resource_name = "Cylinder_cellAction"
 length = 0.5
 tracks/0/type = "transform"
@@ -187,14 +187,14 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = PoolRealArray( 0, 1, 0.714148, -0.00328277, -0.0784971, 0, 0, 0, 1, 1, 1, 1, 0.1, 1, 1.13399, -0.00328277, -0.357304, -0.334013, -0.306472, 0.756543, 0.471331, 1, 1, 1, 0.5, 1, 2.473, -1.233, -1.33, -0.0695414, -0.412807, -0.57748, 0.700907, 1, 1, 1 )
 
-[sub_resource type="Animation" id=95]
+[sub_resource type="Animation" id=88]
 resource_name = "delete_object"
 length = 0.5
 
 [node name="DestructCylinder" type="Spatial" groups=["cylinder_piece"]]
 
 [node name="Spatial" type="Spatial" parent="."]
-transform = Transform( 0.0712244, -1.98046e-15, 0.185817, 6.60155e-16, 0.199, 4.5395e-16, -0.185817, 1.36184e-15, 0.0712244, 0, 0.0875064, -6.23431e-16 )
+transform = Transform( 0.199, 0, 0, 0, 0.199, 0, 0, 0, 0.199, 0, 0.146, 0 )
 
 [node name="Cylinder" type="MeshInstance" parent="Spatial"]
 transform = Transform( 1, 0, 0, 0, -0.144468, 0, 0, 0, 1, 0, 0, 0 )
@@ -204,7 +204,7 @@ skeleton = NodePath("../..")
 material/0 = null
 
 [node name="Cylinder_cell" type="MeshInstance" parent="Spatial"]
-transform = Transform( 1, 0, 0, 0, 1, 4.23516e-22, 0, -8.47033e-22, 1, 0.714148, -0.00328279, -0.0784971 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.714148, -0.00328277, -0.0784971 )
 mesh = SubResource( 2 )
 skeleton = NodePath("../..")
 material/0 = SubResource( 60 )
@@ -238,11 +238,11 @@ parameters/Seek/seek_position = -1.0
 "parameters/Seek 2/seek_position" = -1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Cylinder_cell001Action = SubResource( 91 )
-anims/Cylinder_cell002Action = SubResource( 92 )
-anims/Cylinder_cell003Action = SubResource( 93 )
-anims/Cylinder_cellAction = SubResource( 94 )
-anims/delete_object = SubResource( 95 )
+anims/Cylinder_cell001Action = SubResource( 6 )
+anims/Cylinder_cell002Action = SubResource( 7 )
+anims/Cylinder_cell003Action = SubResource( 8 )
+anims/Cylinder_cellAction = SubResource( 9 )
+anims/delete_object = SubResource( 88 )
 next/Cylinder_cell001Action = "Cylinder_cellAction"
 blend_times = [ "Cylinder_cell001Action", "Cylinder_cell001Action", 0.1, "Cylinder_cell001Action", "Cylinder_cell002Action", 0.3, "Cylinder_cell001Action", "Cylinder_cell003Action", 0.2, "Cylinder_cell001Action", "Cylinder_cellAction", 0.4 ]
 

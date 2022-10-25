@@ -25,7 +25,8 @@ func _init():
 	pass
 	
 func _ready():
-	self.init_piece_propery()
+	self.init_piece_property()
+	self.init_piece_anim()
 
 	for i in range(6):
 		#	Сохраняем изначальные позиции "y" от каждой части цилиндра. Потом на эти значения передвигаем нижние части
@@ -40,7 +41,7 @@ func _process(delta):
 	pass
 
 func move_up_each_object(delta):
-	var test_array = self.get_tree().get_nodes_in_group("cylinder_piece")
+	var test_array = self.get_node("CylinderShape").get_tree().get_nodes_in_group("cylinder_piece")
 
 	if (test_array.size() != 0):
 		for i in range(test_array.size()):
@@ -50,45 +51,43 @@ func move_up_each_object(delta):
 		
 		if is_equal_approx(test_array[0].get_node("Spatial").transform.origin.y, self.cylinderTopPiece):
 			moveAllPieces = false
-			print("All pieces moved!!!")
 			test_array[0].name = "DestructCylinderTop"
 			
-			self.init_piece_propery()
+			self.init_piece_property()
+			self.init_piece_anim()
 			
 			self.hp = 4
 			G.isTargetActionFinished = true
-			print(self.get_tree().get_nodes_in_group("cylinder_piece"))
 	else:
 		return false
 	pass
 
 func visual_destruct_object():
 	G.isTargetActionFinished = false
-	
-	self.init_piece_anim()
-#	print("~~~~~~" + str(self.animDeleteObject.track_get_path(self.track_index)))
+
 	self.get_node("CylinderShape").add_child(self.piece_scene)
 	self.piece_scene.get_node("Spatial").transform.origin.y = self.cylinderLastPiece
-	self.piece_scene.get_node("Spatial").rotation = Vector3(0,0,0)
-	print("~~~~~~~~~Pieces array: " + str(self.get_tree().get_nodes_in_group("cylinder_piece")))
+	self.piece_scene.get_node("Spatial").rotation = Vector3(0,rand_range(0,360),0)
+
 
 	self.animationTree.active = true
 	self.WeaponMeleeContainer.visible = false
 	pass
 	
-func delete_object(piece):
-#	print("~~~~~~~~~~~~~ method delete_object was called!!! " + str(piece))
-	piece.remove_from_group("cylinder_piece")
-	piece.queue_free()
+func delete_object():
+	self.activeDestructCylinderTop.remove_from_group("cylinder_piece")
+	self.activeDestructCylinderTop.queue_free()
+	
 	self.moveAllPieces = true
 	pass
 
-func init_piece_propery():
+func init_piece_property():
 	self.activeDestructCylinderTop = self.get_node("CylinderShape/DestructCylinderTop")
 	self.WeaponMeleeContainer = self.activeDestructCylinderTop.get_node("WeaponMeleeContainer")
 	self.animationTree = self.activeDestructCylinderTop.get_node("AnimationTree")
 	self.animationPlayer = self.activeDestructCylinderTop.get_node("AnimationPlayer")
 	self.animDeleteObject = self.animationPlayer.get_animation("delete_object")
+	
 	
 	self.piece_scene = load("res://Assets/Targets/Cylinder/DestructCylinder.tscn").instance()
 	pass
@@ -96,5 +95,5 @@ func init_piece_propery():
 func init_piece_anim():
 	self.track_index = self.animDeleteObject.add_track(Animation.TYPE_METHOD)
 	self.animDeleteObject.track_set_path(self.track_index, self.get_path())
-	self.animDeleteObject.track_insert_key(self.track_index, 0.2, {"method" : "delete_object" , "args" : [self.activeDestructCylinderTop]})
+	self.animDeleteObject.track_insert_key(self.track_index, 0.2, {"method" : "delete_object" , "args" : []})
 	pass
