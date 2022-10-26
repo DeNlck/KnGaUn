@@ -3,6 +3,8 @@ class_name Cylinder extends KnifeTarget
 export var defaultRotateVelocity = 0.4
 var settingsRotateVelocity = self.defaultRotateVelocity
 
+onready var TweenCylinder = self.get_node("Tween")
+
 var activeDestructCylinderTop
 var animationTree
 var animationPlayer
@@ -30,7 +32,7 @@ func _ready():
 
 	for i in range(6):
 		#	Сохраняем изначальные позиции "y" от каждой части цилиндра. Потом на эти значения передвигаем нижние части
-		self.cylinderArray[i] = self.cylinderGroup[i].get_node("Spatial").transform.origin.y
+		self.cylinderArray[i] = self.cylinderGroup[i].get_node("Spatial").transform.origin
 	pass
 
 func _process(delta):
@@ -42,19 +44,23 @@ func _process(delta):
 
 func move_up_each_object(delta):
 	var test_array = self.get_node("CylinderShape").get_tree().get_nodes_in_group("cylinder_piece")
-
+	var test_array2 = test_array
+	
 	if (test_array.size() != 0):
 		for i in range(test_array.size()):
 			
-			test_array[i].get_node("Spatial").transform.origin.y = lerp(test_array[i].get_node("Spatial").transform.origin.y, self.cylinderArray[i], 0.25)
-	#		test_array[i].get_node("Spatial").transform.origin.y = linear_interpolate(self.cylinderArray[i],0.25)
-		
-		if is_equal_approx(test_array[0].get_node("Spatial").transform.origin.y, self.cylinderTopPiece):
+#			test_array[i].get_node("Spatial").transform.origin.y = lerp(test_array[i].get_node("Spatial").transform.origin.y, self.cylinderArray[i], 0.25)
+#			test_array[i].get_node("Spatial").transform.origin = test_array[i].get_node("Spatial").transform.origin.linear_interpolate(self.cylinderArray[i],0.25)
+			self.TweenCylinder.interpolate_property(test_array[i].get_node("Spatial"), "translation", test_array[i].get_node("Spatial").transform.origin, self.cylinderArray[i], 0.05, Tween.TRANS_LINEAR, Tween.EASE_OUT_IN)
+			self.TweenCylinder.start()
+			
+		if is_equal_approx(stepify(test_array[0].get_node("Spatial").transform.origin.y,0.001), stepify(self.cylinderTopPiece, 0.001)):
 			moveAllPieces = false
 			test_array[0].name = "DestructCylinderTop"
 			
 			self.init_piece_property()
 			self.init_piece_anim()
+#			print("In Group: " + str(self.get_node("CylinderShape").get_tree().get_nodes_in_group("cylinder_piece")))
 			
 			self.hp = 4
 			G.isTargetActionFinished = true
@@ -75,9 +81,10 @@ func visual_destruct_object():
 	pass
 	
 func delete_object():
-	self.activeDestructCylinderTop.remove_from_group("cylinder_piece")
+#	self.activeDestructCylinderTop.remove_from_group("cylinder_piece")
 	self.activeDestructCylinderTop.queue_free()
 	
+	self.TweenCylinder.start()
 	self.moveAllPieces = true
 	pass
 
